@@ -1,0 +1,44 @@
+body {
+    background-color: white;
+}
+
+.container {
+    background-color: white;
+}
+
+.timestamp {
+    font-size: 80%;
+    text-align: right;
+}
+
+.fullWidthButton {
+    display: block; width: 100%;
+}
+
+.btn-primary {
+    background-color: #9B59B6;
+    border: none;
+    border-radius: 0;
+}
+
+.btn-primary:hover {
+    background-color: #913D88;
+}
+
+.addURL {
+    margin-bottom: 2em;
+}
+
+.entry {
+    background-color: #FFFED4;
+}
+
+.entry a {
+    font-size: 20px;
+}
+
+.tag {
+    padding: 2px;
+    color: #999;
+    margin-right: 6px;
+}
