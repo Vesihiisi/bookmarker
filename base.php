@@ -43,3 +43,29 @@ function getPageTitle($url)
     preg_match("/<title>(.+)<\/title>/siU", $output , $result);
     return $result[1];
 }
+
+function printEntry($rowFromDb)
+{
+    $url = $rowFromDb["url"];
+    $domain = parse_url($url) ["host"];
+    $title = $rowFromDb["title"];
+    $timestamp = $rowFromDb["timestamp"];
+    $linkID = $rowFromDb["linkID"];
+    $userID = $_SESSION['UserID'];
+    echo "<div class='entry'>";
+    echo "<a href='$url'>$title</a>";
+    echo "<p>$domain</p>";
+    $tags = getTags($linkID, $userID);
+    echo "<div class='tagrow'>";
+    if (count($tags) > 0) {
+        echo "<div class='tags'>";
+        foreach($tags as $row) {
+            $tag = $row["tag"];
+            echo "<span class='tag'>$tag</span>";
+        }
+        echo "</div>";
+    }
+    echo "<span class='timestamp text-muted'>$timestamp</span>";
+    echo "</div>";
+    echo "</div>";
+}

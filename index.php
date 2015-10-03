@@ -115,31 +115,12 @@ function getTags($linkID, $userID)
   return selectQuery($query, $params);
 }
 
-foreach($result as $row)
-    {
-    $url = $row["url"];
-    $domain = parse_url($url) ["host"];
-    $title = $row["title"];
-    $timestamp = $row["timestamp"];
-    $linkID = $row["linkID"];
-    $userID = $_SESSION['UserID'];
-    echo "<div class='entry'>";
-    echo "<a href='$url'>$title</a>";
-    echo "<p>$domain</p>";
-    $tags = getTags($linkID, $userID);
-    echo "<div class='tagrow'>";
-    if (count($tags) > 0) {
-        echo "<div class='tags'>";
-        foreach($tags as $row) {
-            $tag = $row["tag"];
-            echo "<span class='tag'>$tag</span>";
-        }
-        echo "</div>";
-    }
-    echo "<span class='timestamp text-muted'>$timestamp</span>";
-    echo "</div>";
-    echo "</div>";
-    }
+
+
+
+foreach($result as $row) {
+    printEntry($row);
+}
 
 ?></div>
   <div class="col-sm-3"><?php include"tagList.php";?></div>
