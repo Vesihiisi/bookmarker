@@ -22,4 +22,6 @@ $(document).ready(function() {
             "color", "#EBEBEB");
     })
 
+    $(".glyphicon-remove").tooltip();
+
 });
