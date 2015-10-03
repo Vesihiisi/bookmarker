@@ -18,15 +18,17 @@ function getTagsOfUser($userID)
 }
 
 function printTagList($queryResult) {
+    echo "<div class='tag-list'>";
+    echo "<ul>";
     foreach ($queryResult as $row) {
         $tag = $row["tag"];
         $count = $row["count"];
-        echo "<div class='tag-list'>";
-        echo "<ul>";
         echo "<li>$tag <span class='tag-count'>$count</span></li>";
-        echo "</ul>";
-        echo "</div>";
+
+
     }
+    echo "</ul>";
+    echo "</div>";
 }
 
 $tags = getTagsOfUser($userID);

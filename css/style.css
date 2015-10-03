@@ -70,15 +70,15 @@ body {
 
 .tag-list {
     width: 100%;
-    border-bottom: 1px solid #e0e0e0;
 }
 
 .tag-list > ul {
     list-style-type: none;
-    padding: 0.1em 0;
+    padding: 0;
     margin: 0;
 }
 
-.tag-list > li {
-
+.tag-list > ul > li {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.25em 0;
 }
