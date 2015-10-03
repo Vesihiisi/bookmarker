@@ -69,3 +69,39 @@ function printEntry($rowFromDb)
     echo "</div>";
     echo "</div>";
 }
+
+function getLinksFromTag($tag)
+{
+    $userID = $_SESSION['UserID'];
+    $query = "SELECT
+    links.linkID
+    from taggedlinks, tags, links
+    WHERE  taggedlinks.linkID = links.linkID
+    AND taggedlinks.tagID = tags.tagID
+    AND links.userID = ?
+    AND tag = ?";
+    $params = [$userID, $tag];
+    $linkIds = array();
+    $res = selectQuery($query, $params);
+    foreach ($res as $row) {
+        array_push($linkIds, $row["linkID"]) ;
+    }
+    return $linkIds;
+}
+
+function getLinkFromId($linkID)
+{
+    $query = "select * from links where linkID = ?";
+    $params = [$linkID];
+    return selectQuery($query, $params);
+}
+
+function printLinksFromTag($tag)
+{
+    $linkIds = getLinksFromTag('food');
+    foreach ($linkIds as $row) {
+        $link = getLinkFromId($row)[0];
+        printEntry($link);
+        echo "<hr>";
+    }
+}
