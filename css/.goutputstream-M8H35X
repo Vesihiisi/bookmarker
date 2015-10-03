@@ -1,0 +1,182 @@
+html {
+       overflow-y: scroll;
+}
+body {
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: #446CB3;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #913D88;
+}
+
+.container {
+    background-color: white;
+}
+
+.user-menu {
+    text-align: right;
+    margin-bottom: 1em;
+}
+
+.addURLPanel {
+    display: none;
+}
+
+.title-bar {
+
+}
+
+.title {
+    width: 90%;
+    float: left;
+}
+
+.edit-links {
+    float: right;
+    color: #EBEBEB;
+}
+
+.timestamp {
+    font-size: 80%;
+}
+
+.fullWidthButton {
+    display: block; width: 100%;
+}
+
+.glyphicon {
+    padding-right: 0.5em;
+}
+
+.btn-primary {
+    background-color: #9B59B6;
+    border: none;
+    border-radius: 0;
+}
+
+.btn-primary:hover {
+    background-color: #913D88;
+}
+
+.bootstrap-tagsinput {
+  width: 100%;
+  display: block;
+}
+
+.addURL {
+    margin-bottom: 2em;
+}
+
+.entry {
+    border-bottom: 1px solid #e0e0e0;
+
+}
+
+.entry a {
+    font-size: 20px;
+}
+
+.tagrow {
+    text-align: right;
+    padding-bottom: 1em;
+}
+
+.tags {
+    float: left;
+}
+
+.tag {
+    padding: 0.4em 0.5em;
+    font-size: 12px;
+    background-color: #ECDAF1;
+    margin: 2px 5px 2px 0;
+    line-height: 1;
+    transition: background 0.15s ease 0s, color 0.15s ease 0s;
+    cursor: pointer;
+    color: #573566;
+}
+
+.tag:hover {
+    background-color: #C3A3CC;
+    color: white;
+}
+
+.tag-count {
+    float: right;
+    font-weight: bold;
+}
+
+.tag-list {
+    width: 100%;
+}
+
+.tag-list > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tag-list > ul > li {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.25em;
+    cursor: pointer;
+}
+
+.tag-list > ul > li:hover {
+    background-color: #F5F5F5;
+}
+
+.tag-list > ul > li a {
+    color: inherit;
+    display: block;
+}
+
+.tag-list > ul > li a:hover {
+
+}
+
+.highlightedTag {
+    background-color: #e0e0e0;
+    font-weight: bold;
+}
+
+.removeTag {
+    font-weight: bold;
+}
+
+.removeTag:hover {
+    text-decoration: line-through;
+}
+
+ul.tagit {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    cursor: text;
+    font-size: 14px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: none;
+    background-color: #ECDAF1;
+    border: none;
+    border-radius: 0;
+}
+
+.tagit-label {
+    color: #573566;
+    font-weight: normal;
+}
+
+.ui-widget-content {
+    background: inherit;
+}
