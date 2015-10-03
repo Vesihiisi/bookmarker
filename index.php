@@ -144,7 +144,7 @@ foreach($result as $row)
     }
 
 ?></div>
-  <div class="col-sm-3"></div>
+  <div class="col-sm-3"><?php include"tagList.php";?></div>
 </div>
 
 
