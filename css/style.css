@@ -2,6 +2,16 @@ body {
     background-color: white;
 }
 
+a {
+    text-decoration: none;
+    color: #446CB3;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #913D88;
+}
+
 .container {
     background-color: white;
 
@@ -94,7 +104,7 @@ body {
 }
 
 .tag-list > ul > li a:hover {
-    text-decoration: none;
+
 }
 
 .highlightedTag {
