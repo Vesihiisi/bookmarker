@@ -30,6 +30,7 @@ function processPost($data)
         if (strlen($_POST["tags"]) > 0) {
             $tagString = strtolower($_POST["tags"]);
             $tags = stringToArray($tagString);
+            $tags = array_unique($tags);
             foreach($tags as $tag)
                 {
                 $query = "SELECT * from tags WHERE tag = ?";
