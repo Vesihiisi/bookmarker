@@ -127,19 +127,17 @@ foreach($result as $row)
     echo "<a href='$url'>$title</a>";
     echo "<p>$domain</p>";
     $tags = getTags($linkID, $userID);
-    if (count($tags) > 0)
-        {
-        echo "<p>";
-        foreach($tags as $row)
-            {
+    echo "<div class='tagrow'>";
+    if (count($tags) > 0) {
+        echo "<div class='tags'>";
+        foreach($tags as $row) {
             $tag = $row["tag"];
             echo "<span class='tag'>$tag</span>";
-            }
-echo "<span class='timestamp text-muted'>$timestamp</span>";
-        echo "</p>";
         }
-
-    
+        echo "</div>";
+    }
+    echo "<span class='timestamp text-muted'>$timestamp</span>";
+    echo "</div>";
     echo "</div>";
     }
 

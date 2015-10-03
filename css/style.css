@@ -4,11 +4,11 @@ body {
 
 .container {
     background-color: white;
+
 }
 
 .timestamp {
     font-size: 80%;
-    float: right;
 }
 
 .fullWidthButton {
@@ -36,6 +36,15 @@ body {
 
 .entry a {
     font-size: 20px;
+}
+
+.tagrow {
+    text-align: right;
+    padding-bottom: 1em;
+}
+
+.tags {
+    float: left;
 }
 
 .tag {
