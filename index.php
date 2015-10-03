@@ -107,6 +107,7 @@ echo $username ?> -- <a href="logout.php">log out</a></p>
 
 if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
     $tag = $_GET["tag"];
+    echo "<p class='alert alert-info'>Filter: <a href='?tag=' class='removeTag'>$tag</a></p>";
     printLinksFromTag($tag);
 } else {
     include "allLinks.php";

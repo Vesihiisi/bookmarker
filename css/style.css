@@ -111,3 +111,11 @@ a:hover {
     background-color: #e0e0e0;
     font-weight: bold;
 }
+
+.removeTag {
+    font-weight: bold;
+}
+
+.removeTag:hover {
+    text-decoration: line-through;
+}
