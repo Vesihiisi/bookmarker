@@ -9,4 +9,9 @@ $(document).ready(function() {
         singleField: true,
     });
 
+    $("#showPanel").click(function() {
+        console.log("click");
+        $(".addURLPanel").slideToggle();
+    })
+
 });

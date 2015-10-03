@@ -17,7 +17,14 @@ a:hover {
 
 .container {
     background-color: white;
+}
 
+.user-menu {
+    text-align: right;
+}
+
+.addURLPanel {
+    display: none;
 }
 
 .timestamp {
@@ -26,6 +33,10 @@ a:hover {
 
 .fullWidthButton {
     display: block; width: 100%;
+}
+
+.glyphicon {
+    padding-right: 0.5em;
 }
 
 .btn-primary {

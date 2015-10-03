@@ -87,7 +87,8 @@ function getLinksFromTag($tag)
     WHERE  taggedlinks.linkID = links.linkID
     AND taggedlinks.tagID = tags.tagID
     AND links.userID = ?
-    AND tag = ?";
+    AND tag = ?
+    ORDER BY timestamp DESC";
     $params = [$userID, $tag];
     $linkIds = array();
     $res = selectQuery($query, $params);

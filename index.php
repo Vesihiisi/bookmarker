@@ -93,20 +93,26 @@ if ($_POST)
     <h1>Super bookmarker</h1>
   </div>
 <div class="row">
-  <div class="col-sm-9">  <p>you are logged in as <?php
-echo $username ?> -- <a href="logout.php">log out</a></p>
-  <form id="addURL" class="addURL" method="post" role="form">
-  <div class="form-group">
-   <label for="url">URL:</label>
-  <input type="url" name="url" id="url" class="form-control" required>
-  </div>
-    <div class="form-group">
-   <label for="tags">TAGS:</label>
-  <input type="tags" name="tags" id="tagForm">
-  </div>
-  <button type="submit" value="add" class="btn btn-primary fullWidthButton">add</button>
-  </form>
+  <div class="col-sm-9">
 
+<div class="user-menu"> 
+
+<button class="btn btn-primary" id="showPanel"><span class="glyphicon glyphicon-pencil"></span>Add a new link</button>
+</div>
+
+<div class="addURLPanel">
+<form id="addURL" class="addURL" method="post" role="form">
+<div class="form-group">
+<label for="url">URL:</label>
+<input type="url" name="url" id="url" class="form-control" required>
+</div>
+<div class="form-group">
+<label for="tags">TAGS:</label>
+<input type="tags" name="tags" id="tagForm">
+</div>
+<button type="submit" value="add" class="btn btn-primary fullWidthButton">add</button>
+</form>
+</div>
 
 
 
@@ -124,7 +130,9 @@ if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
 
 
 ?></div>
-  <div class="col-sm-3"><?php include"tagList.php";?></div>
+
+<div class="col-sm-3"><p>you are logged in as <?php echo $username ?></p>
+<p><a href="logout.php">log out</a></p><?php include"tagList.php";?></div>
 </div>
 
 
