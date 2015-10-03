@@ -88,6 +88,15 @@ body {
     background-color: #F5F5F5;
 }
 
+.tag-list > ul > li a {
+    color: inherit;
+    display: block;
+}
+
+.tag-list > ul > li a:hover {
+    text-decoration: none;
+}
+
 .highlightedTag {
     background-color: #e0e0e0;
     font-weight: bold;

@@ -20,6 +20,8 @@ function getTagsOfUser($userID)
 function printTagList($queryResult) {
     if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
         $tagToHighlight = $_GET["tag"];
+    } else {
+        $tagToHighlight = null;
     }
     echo "<div class='tag-list'>";
     echo "<ul>";
@@ -31,7 +33,7 @@ function printTagList($queryResult) {
             $addHighlightClass = null;
         }
         $count = $row["count"];
-        echo "<li $addHighlightClass>$tagName<span class='tag-count'>$count</span></li>";
+        echo "<li $addHighlightClass><a href='?tag=$tagName'>$tagName<span class='tag-count'>$count</span></a></li>";
     }
     echo "</ul>";
     echo "</div>";
