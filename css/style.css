@@ -62,3 +62,23 @@ body {
     background-color: #C3A3CC;
     color: white;
 }
+
+.tag-count {
+    float: right;
+    font-weight: bold;
+}
+
+.tag-list {
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tag-list > ul {
+    list-style-type: none;
+    padding: 0.1em 0;
+    margin: 0;
+}
+
+.tag-list > li {
+
+}
