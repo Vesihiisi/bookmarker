@@ -22,8 +22,7 @@ function processPost($data)
         }
       else
         {
-        preg_match("/<title>(.+)<\/title>/siU", file_get_contents($url) , $matches);
-        $title = trim($matches[1]);
+        $title = getPageTitle($url);
         $query = "INSERT into links (userID, url, title, timestamp) VALUES (?, ?, ?, now())";
         $params = [$userID, $url, $title];
         $lastInserted = editQuery($query, $params);
