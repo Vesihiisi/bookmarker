@@ -30,7 +30,7 @@ body {
 }
 
 .entry {
-    background-color: #FFFED4;
+
 }
 
 .entry a {
@@ -38,7 +38,17 @@ body {
 }
 
 .tag {
-    padding: 2px;
-    color: #999;
-    margin-right: 6px;
+    padding: 0.4em 0.5em;
+    font-size: 12px;
+    background-color: #ECDAF1;
+    margin: 2px 5px 2px 0;
+    line-height: 1;
+    transition: background 0.15s ease 0s, color 0.15s ease 0s;
+    cursor: pointer;
+    color: #573566;
+}
+
+.tag:hover {
+    background-color: #C3A3CC;
+    color: white;
 }
