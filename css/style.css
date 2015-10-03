@@ -127,3 +127,30 @@ a:hover {
 .removeTag:hover {
     text-decoration: line-through;
 }
+
+ul.tagit {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    cursor: text;
+    font-size: 14px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: none;
+    background-color: #ECDAF1;
+    border: none;
+    border-radius: 0;
+}
+
+.tagit-label {
+    color: #573566;
+    font-weight: normal;
+}
+
+.ui-widget-content {
+    background: inherit;
+}
