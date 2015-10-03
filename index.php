@@ -135,11 +135,11 @@ foreach($result as $row)
             $tag = $row["tag"];
             echo "<span class='tag'>$tag</span>";
             }
-
+echo "<span class='timestamp text-muted'>$timestamp</span>";
         echo "</p>";
         }
 
-    echo "<p class='timestamp text-muted'>$timestamp</p>";
+    
     echo "</div>";
     }
 
