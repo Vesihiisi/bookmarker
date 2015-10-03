@@ -33,7 +33,7 @@ function printTagList($queryResult) {
             $addHighlightClass = null;
         }
         $count = $row["count"];
-        echo "<li $addHighlightClass><a href='?tag=$tagName'>$tagName<span class='tag-count'>$count</span></a></li>";
+        echo "<li $addHighlightClass><a href='?tag=$tagName'>$tagName<span class='tag-count'>$count</span></li>";
     }
     echo "</ul>";
     echo "</div>";

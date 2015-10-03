@@ -38,6 +38,11 @@ a:hover {
     background-color: #913D88;
 }
 
+.bootstrap-tagsinput {
+  width: 100%;
+  display: block;
+}
+
 .addURL {
     margin-bottom: 2em;
 }
