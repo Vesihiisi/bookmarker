@@ -105,7 +105,14 @@ echo $username ?> -- <a href="logout.php">log out</a></p>
 
 <?php
 
-include "allLinks.php";
+if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
+    $tag = $_GET["tag"];
+    printLinksFromTag($tag);
+} else {
+    include "allLinks.php";
+}
+
+
 
 ?></div>
   <div class="col-sm-3"><?php include"tagList.php";?></div>

@@ -98,11 +98,10 @@ function getLinkFromId($linkID)
 
 function printLinksFromTag($tag)
 {
-    $linkIds = getLinksFromTag('food');
+    $linkIds = getLinksFromTag($tag);
     foreach ($linkIds as $row) {
         $link = getLinkFromId($row)[0];
         printEntry($link);
-        echo "<hr>";
     }
 }
 
