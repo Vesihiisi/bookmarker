@@ -61,7 +61,12 @@ function printEntry($rowFromDb)
     $linkID = $rowFromDb["linkID"];
     $userID = $_SESSION['UserID'];
     echo "<div class='entry'>";
+    echo "<div class='title-bar'>";
+    echo "<div class='title'>";
     echo "<a href='$url'>$title</a>";
+    echo "</div>";
+    echo "<div class='edit-links'><span class='glyphicon glyphicon-remove'></span></div>";
+    echo "</div>";
     echo "<p>$domain</p>";
     $tags = getTags($linkID, $userID);
     echo "<div class='tagrow'>";

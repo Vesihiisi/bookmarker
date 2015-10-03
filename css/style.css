@@ -21,10 +21,25 @@ a:hover {
 
 .user-menu {
     text-align: right;
+    margin-bottom: 1em;
 }
 
 .addURLPanel {
     display: none;
+}
+
+.title-bar {
+
+}
+
+.title {
+    width: 90%;
+    float: left;
+}
+
+.edit-links {
+    float: right;
+    color: #EBEBEB;
 }
 
 .timestamp {

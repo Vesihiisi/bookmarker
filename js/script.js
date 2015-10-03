@@ -14,4 +14,12 @@ $(document).ready(function() {
         $(".addURLPanel").slideToggle();
     })
 
+    $(".entry").hover(function() {
+        $(this).children(".title-bar").children(".edit-links").css(
+            "color", "#3A3A3A")
+    }, function() {
+        $(this).children(".title-bar").children(".edit-links").css(
+            "color", "#EBEBEB");
+    })
+
 });
