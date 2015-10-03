@@ -2,10 +2,10 @@
 
 $userID = $_SESSION["UserID"];
 
+
+
 function getTagsOfUser($userID)
 {
-
-
     $query = "SELECT
     tag, COUNT(*) AS 'count'
     from taggedlinks, tags, links
@@ -18,14 +18,20 @@ function getTagsOfUser($userID)
 }
 
 function printTagList($queryResult) {
+    if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
+        $tagToHighlight = $_GET["tag"];
+    }
     echo "<div class='tag-list'>";
     echo "<ul>";
     foreach ($queryResult as $row) {
-        $tag = $row["tag"];
+        $tagName = $row["tag"];
+        if ($tagToHighlight == $tagName) {
+            $addHighlightClass = "class = highlightedTag";
+        } else {
+            $addHighlightClass = null;
+        }
         $count = $row["count"];
-        echo "<li>$tag <span class='tag-count'>$count</span></li>";
-
-
+        echo "<li $addHighlightClass>$tagName<span class='tag-count'>$count</span></li>";
     }
     echo "</ul>";
     echo "</div>";
