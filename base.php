@@ -61,7 +61,7 @@ function printEntry($rowFromDb)
         echo "<div class='tags'>";
         foreach($tags as $row) {
             $tag = $row["tag"];
-            echo "<span class='tag'>$tag</span>";
+            echo "<a href='?tag=$tag'><span class='tag'>$tag</span></a>";
         }
         echo "</div>";
     }
