@@ -79,6 +79,8 @@ if ($_POST)
       <link rel="stylesheet" type="text/css" href="css/style.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      <script src="js/jquery.sticky.js"></script>
+      <script src="js/script.js"></script>
       <title>super bookmarker</title>
   </head>
 
@@ -96,7 +98,7 @@ echo $username ?> -- <a href="logout.php">log out</a></p>
   <input type="url" name="url" id="url" class="form-control" required>
   </div>
     <div class="form-group">
-   <label for="tags">TAGS:</label>
+   <label for="tags">TAGS: (space delimited)</label>
   <input type="tags" name="tags" id="tags" class="form-control">
   </div>
   <button type="submit" value="add" class="btn btn-primary fullWidthButton">add</button>
