@@ -27,9 +27,9 @@ function processPost($data)
         $query = "INSERT into links (userID, url, title, timestamp) VALUES (?, ?, ?, now())";
         $params = [$userID, $url, $title];
         $lastInserted = editQuery($query, $params);
-        if (strlen($_POST["tags"]) > 0)
-            {
-            $tags = stringToArray($_POST["tags"]);
+        if (strlen($_POST["tags"]) > 0) {
+            $tagString = strtolower($_POST["tags"]);
+            $tags = stringToArray($tagString);
             foreach($tags as $tag)
                 {
                 $query = "SELECT * from tags WHERE tag = ?";
@@ -109,11 +109,11 @@ $params = [$_SESSION['UserID']];
 $result = selectQuery($query, $params);
 
 function getTags($linkID, $userID)
-    {
-    $query = "select taggedlinks.tagID, tag, links.userID from taggedlinks, tags, links WHERE taggedlinks.linkID = ? AND taggedlinks.linkID = links.linkID AND taggedlinks.tagID = tags.tagID AND links.userID = ?;";
-    $params = [$linkID, $userID];
-    return selectQuery($query, $params);
-    }
+{
+  $query = "select taggedlinks.tagID, tag, links.userID from taggedlinks, tags, links WHERE taggedlinks.linkID = ? AND taggedlinks.linkID = links.linkID AND taggedlinks.tagID = tags.tagID AND links.userID = ?;";
+  $params = [$linkID, $userID];
+  return selectQuery($query, $params);
+}
 
 foreach($result as $row)
     {
