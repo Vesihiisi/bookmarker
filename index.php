@@ -104,23 +104,8 @@ echo $username ?> -- <a href="logout.php">log out</a></p>
 
 
 <?php
-$query = "SELECT * FROM links WHERE UserID = ? ORDER BY timestamp DESC";
-$params = [$_SESSION['UserID']];
-$result = selectQuery($query, $params);
 
-function getTags($linkID, $userID)
-{
-  $query = "select taggedlinks.tagID, tag, links.userID from taggedlinks, tags, links WHERE taggedlinks.linkID = ? AND taggedlinks.linkID = links.linkID AND taggedlinks.tagID = tags.tagID AND links.userID = ?;";
-  $params = [$linkID, $userID];
-  return selectQuery($query, $params);
-}
-
-
-
-
-foreach($result as $row) {
-    printEntry($row);
-}
+include "allLinks.php";
 
 ?></div>
   <div class="col-sm-3"><?php include"tagList.php";?></div>

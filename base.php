@@ -105,3 +105,20 @@ function printLinksFromTag($tag)
         echo "<hr>";
     }
 }
+
+function getTags($linkID, $userID)
+{
+  $query = "select taggedlinks.tagID, tag, links.userID from taggedlinks, tags, links WHERE taggedlinks.linkID = ? AND taggedlinks.linkID = links.linkID AND taggedlinks.tagID = tags.tagID AND links.userID = ?;";
+  $params = [$linkID, $userID];
+  return selectQuery($query, $params);
+}
+
+function printAllLinks($userID)
+{
+    $query = "SELECT * FROM links WHERE UserID = ? ORDER BY timestamp DESC";
+    $params = [$userID];
+    $result = selectQuery($query, $params);
+    foreach($result as $row) {
+        printEntry($row);
+    }
+}
