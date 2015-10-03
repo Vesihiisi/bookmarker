@@ -48,7 +48,7 @@ function printEntry($rowFromDb)
 {
     $url = $rowFromDb["url"];
     $domain = parse_url($url) ["host"];
-    $title = $rowFromDb["title"];
+    $title = htmlspecialchars($rowFromDb["title"]);
     $timestamp = $rowFromDb["timestamp"];
     $linkID = $rowFromDb["linkID"];
     $userID = $_SESSION['UserID'];
