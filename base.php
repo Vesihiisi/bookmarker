@@ -3,6 +3,14 @@ session_start();
 
 include "config.php";
 
+function logIt($string)
+{
+    $filename = "log.log";
+    $fh = fopen($filename, "a") or die("Could not open log file.");
+    fwrite($fh, date("d-m-Y, H:i")." - $string\n") or die("Could not write file!");
+    fclose($fh);
+}
+
 function connectToDb()
 {
     try {
@@ -41,7 +49,7 @@ function getPageTitle($url)
     $output = curl_exec($ch);
     curl_close($ch);
     preg_match("/<title>(.+)<\/title>/siU", $output , $result);
-    return htmlspecialchars_decode($result[1]);
+    return htmlspecialchars_decode($result[1], ENT_QUOTES);
 }
 
 function printEntry($rowFromDb)
