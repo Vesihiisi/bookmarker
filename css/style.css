@@ -81,6 +81,11 @@ body {
 .tag-list > ul > li {
     border-bottom: 1px solid #e0e0e0;
     padding: 0.25em;
+    cursor: pointer;
+}
+
+.tag-list > ul > li:hover {
+    background-color: #F5F5F5;
 }
 
 .highlightedTag {
