@@ -41,13 +41,13 @@ function getPageTitle($url)
     $output = curl_exec($ch);
     curl_close($ch);
     preg_match("/<title>(.+)<\/title>/siU", $output , $result);
-    return $result[1];
+    return htmlspecialchars_decode($result[1]);
 }
 
 function printEntry($rowFromDb)
 {
     $url = $rowFromDb["url"];
-    $domain = parse_url($url) ["host"];
+    $domain = parse_url($url)["host"];
     $title = htmlspecialchars($rowFromDb["title"]);
     $timestamp = $rowFromDb["timestamp"];
     $linkID = $rowFromDb["linkID"];

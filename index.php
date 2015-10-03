@@ -102,7 +102,7 @@ echo $username ?> -- <a href="logout.php">log out</a></p>
   </div>
     <div class="form-group">
    <label for="tags">TAGS:</label>
-  <input type="tags" name="tags" id="tagForm" class="form-control">
+  <input type="tags" name="tags" id="tagForm">
   </div>
   <button type="submit" value="add" class="btn btn-primary fullWidthButton">add</button>
   </form>
