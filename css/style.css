@@ -15,9 +15,6 @@ a:hover {
     color: #913D88;
 }
 
-.container {
-    background-color: white;
-}
 
 .user-menu {
     text-align: right;
@@ -40,6 +37,10 @@ a:hover {
 .edit-links {
     float: right;
     color: #EBEBEB;
+}
+
+.edit-links > .glyphicon {
+    cursor: pointer;
 }
 
 .timestamp {
@@ -179,4 +180,10 @@ ul.tagit {
 
 .ui-widget-content {
     background: inherit;
+}
+
+.tooltip > .tooltip-inner {
+    background-color: black; 
+    color: #FFFFFF;
+    padding: 5px 15px;
 }

@@ -22,6 +22,11 @@ $(document).ready(function() {
             "color", "#EBEBEB");
     })
 
-    $(".glyphicon-remove").tooltip();
+    $(".glyphicon-remove").tooltip({
+        animation: true,
+    });
+
+    $(".glyphicon-remove").click(function() {
+    })
 
 });
