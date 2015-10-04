@@ -10,6 +10,17 @@ function stringToArray($string)
     return explode(",", $string);
     }
 
+function checkIfUserAlreadyHasThisUrl($url, $userID) {
+    $query = "SELECT * from links where url = ? and userID = ?";
+    $params = [$url, $userID];
+    $result = selectQuery($query, $params);
+    if (count($result) == 1) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
 function processPost($data)
     {
     $userID = $_SESSION['UserID'];
@@ -21,7 +32,11 @@ function processPost($data)
         }
       else
         {
-        $title = getPageTitle($url);
+        if (checkIfUserAlreadyHasThisUrl($url, $userID) == 0) {
+            echo "link already exists";
+            break;
+        } else {
+                    $title = getPageTitle($url);
         $query = "INSERT into links (userID, url, title, timestamp) VALUES (?, ?, ?, now())";
         $params = [$userID, $url, $title];
         $lastInserted = editQuery($query, $params);
@@ -54,6 +69,8 @@ function processPost($data)
                 }
             }
         }
+        }
+
     }
 
 if ($_POST)
