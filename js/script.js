@@ -26,7 +26,15 @@ $(document).ready(function() {
         animation: true,
     });
 
-    $(".glyphicon-remove").click(function() {
+    $(".glyphicon-remove").on('click', function() {
+        if (confirm("Are you sure?")) {
+            var linkID = this.id;
+            $.post("delete.php", {linkID : linkID})
+            .done(function(data) {
+                console.log(data);
+            })
+        }
     })
+
 
 });

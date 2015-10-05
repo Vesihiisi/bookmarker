@@ -2,7 +2,7 @@
 include "base.php";
 
 function deleteEntry($id) {
-    $query = "SELECT from links where linkID = ?";
+    $query = "DELETE from links where linkID = ?";
     $params = [$id];
     editQuery($query, $params);
 }
