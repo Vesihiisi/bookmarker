@@ -27,11 +27,12 @@ $(document).ready(function() {
     });
 
     $(".glyphicon-remove").on('click', function() {
+        var parent = $(this).parents(".entry");
         if (confirm("Are you sure?")) {
             var linkID = this.id;
             $.post("delete.php", {linkID : linkID})
-            .done(function(data) {
-                console.log(data);
+            .done(function() {
+                parent.slideUp()
             })
         }
     })
