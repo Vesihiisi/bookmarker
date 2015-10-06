@@ -31,12 +31,12 @@ function printTagList($queryResult) {
     foreach ($queryResult as $row) {
         $tagName = $row["tag"];
         if ($tagToHighlight == $tagName) {
-            $addHighlightClass = "class = highlightedTag";
+            $addHighlightClass = "highlightedTag";
         } else {
             $addHighlightClass = null;
         }
         $count = $row["count"];
-        echo "<tr $addHighlightClass>";
+        echo "<tr class= 'clickable $addHighlightClass' >";
         echo "<td>";
         echo "<a href='?tag=$tagName'>$tagName</a>";
         echo "</td>";

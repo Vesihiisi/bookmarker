@@ -39,5 +39,9 @@ $(document).ready(function() {
 
     $(".tag-list").stupidtable();
 
+    $(".clickable").click(function(){
+        location.href = $(this).find('td a').attr('href');
+    })
+
 
 });
