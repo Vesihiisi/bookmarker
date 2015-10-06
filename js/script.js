@@ -22,7 +22,7 @@ $(document).ready(function() {
         var link = $('<a>', {
             text: tag,
             href: url,
-            class : 'removeTag'
+            class: 'removeTag'
         }).appendTo(alert);
         alert.addClass("alert");
         alert.addClass("alert-info");
@@ -41,9 +41,15 @@ $(document).ready(function() {
                 return $(this).text() == getUrlVars()["tag"];
             }).closest("tr");
             tableRow.addClass("highlightedTag");
+            $(".tag-list").sticky({
+                topSpacing: 10
+            });
         })
 
-
+    function fillEntries(data) {
+        $(".entries").html(data);
+        addFunctionsToEntryInterface();
+    }
 
     var urlParams = getUrlVars();
 
@@ -51,7 +57,7 @@ $(document).ready(function() {
         $(".entries").html("loading.......")
         $.get("allLinks.php")
             .done(function(data) {
-                $(".entries").html(data);
+                fillEntries(data);
             })
     } else {
         var tag = urlParams["tag"];
@@ -59,16 +65,14 @@ $(document).ready(function() {
                 tag: tag
             })
             .done(function(data) {
-                $(".entries").html(data);
+                fillEntries(data);
                 printAlert(tag, $(".entries"))
             })
     }
 
 
 
-    $(".tag-list").sticky({
-        topSpacing: 10
-    });
+
 
     $("#tagForm").tagit({
         singleField: true,
@@ -79,34 +83,39 @@ $(document).ready(function() {
         $(".addURLPanel").slideToggle();
     })
 
-    $(".entry").hover(function() {
-        $(this).children(".edit-links").css(
-            "color", "#3A3A3A")
-    }, function() {
-        $(this).children(".edit-links").css(
-            "color", "#EBEBEB");
-    })
 
-    $(".glyphicon-remove").tooltip({
-        animation: true,
-    });
 
-    $(".glyphicon-edit").tooltip({
-        animation: true,
-    });
+    function addFunctionsToEntryInterface() {
+        $(".glyphicon-remove").tooltip({
+            animation: true,
+        });
 
-    $(".glyphicon-remove").on('click', function() {
-        var parent = $(this).parents(".entry");
-        if (confirm("Are you sure?")) {
-            var linkID = this.id;
-            $.post("delete.php", {
-                    linkID: linkID
-                })
-                .done(function() {
-                    parent.slideUp()
-                })
-        }
-    })
+        $(".glyphicon-edit").tooltip({
+            animation: true,
+        });
+
+        $(".entry").hover(function() {
+            $(this).children(".edit-links").css(
+                "color", "#3A3A3A")
+        }, function() {
+            $(this).children(".edit-links").css(
+                "color", "#EBEBEB");
+        })
+
+        $(".glyphicon-remove").on('click', function() {
+            var parent = $(this).parents(".entry");
+            console.log("click")
+            if (confirm("Are you sure?")) {
+                var linkID = this.id;
+                $.post("delete.php", {
+                        linkID: linkID
+                    })
+                    .done(function() {
+                        parent.slideUp()
+                    })
+            }
+        })
+    }
 
 
 
