@@ -106,8 +106,39 @@ if ($_POST)
   </head>
 
   <body>
+
+
+
+
+
+
+
   <div class="container">
+
+
+<div class="row top-row">
+<div class="col-sm-12">
+
+<div class="navbar-header">
+ <div class="dropdown">
+  <span class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo $username ?>
+  <span class="caret"></span></span>
+  <ul class="dropdown-menu pull-right">
+      <li class="disabled"><a href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+    <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Sign out</a></li>
+  </ul>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+
+
   <div class="page-header">
+
     <h1>Super bookmarker</h1>
   </div>
 <div class="row">
@@ -149,8 +180,7 @@ if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
 
 ?></div>
 
-<div class="col-sm-3"><p>you are logged in as <?php echo $username ?></p>
-<p><a href="logout.php">log out</a></p><?php include"tagList.php";?></div>
+<div class="col-sm-3"><?php include"tagList.php";?></div>
 </div>
 
 
