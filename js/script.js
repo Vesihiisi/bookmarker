@@ -15,10 +15,10 @@ $(document).ready(function() {
     })
 
     $(".entry").hover(function() {
-        $(this).children(".title-bar").children(".edit-links").css(
+        $(this).children(".edit-links").css(
             "color", "#3A3A3A")
     }, function() {
-        $(this).children(".title-bar").children(".edit-links").css(
+        $(this).children(".edit-links").css(
             "color", "#EBEBEB");
     })
 
