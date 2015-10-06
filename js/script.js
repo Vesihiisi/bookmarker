@@ -1,15 +1,34 @@
 $(document).ready(function() {
+
     function getUrlVars() {
         var vars = [],
             hash;
-        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-        for (var i = 0; i < hashes.length; i++) {
-            hash = hashes[i].split('=');
-            vars.push(hash[0]);
-            vars[hash[0]] = hash[1];
+        var q = document.URL.split('?')[1];
+        if (q != undefined) {
+            q = q.split('&');
+            for (var i = 0; i < q.length; i++) {
+                hash = q[i].split('=');
+                vars.push(hash[1]);
+                vars[hash[0]] = hash[1];
+            }
         }
-        return vars;
+        return vars
     }
+
+
+    function printAlert(tag, parent) {
+        var url = window.location.href.split('?')[0];
+        var alert = $("<p></p>").text("Filter: ");
+        var link = $('<a>', {
+            text: tag,
+            href: url,
+            class : 'removeTag'
+        }).appendTo(alert);
+        alert.addClass("alert");
+        alert.addClass("alert-info");
+        parent.prepend(alert)
+    }
+
 
     $.get("tagList.php")
         .done(function(data) {
@@ -23,6 +42,29 @@ $(document).ready(function() {
             }).closest("tr");
             tableRow.addClass("highlightedTag");
         })
+
+
+
+    var urlParams = getUrlVars();
+
+    if (urlParams.length == 0) {
+        $(".entries").html("loading.......")
+        $.get("allLinks.php")
+            .done(function(data) {
+                $(".entries").html(data);
+            })
+    } else {
+        var tag = urlParams["tag"];
+        $.get("tagLinks.php", {
+                tag: tag
+            })
+            .done(function(data) {
+                $(".entries").html(data);
+                printAlert(tag, $(".entries"))
+            })
+    }
+
+
 
     $(".tag-list").sticky({
         topSpacing: 10

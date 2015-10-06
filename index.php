@@ -188,6 +188,9 @@ if ($_POST)
 </form>
 </div>
 
+<div class="entries">
+</div>
+
 
 
 
@@ -195,10 +198,10 @@ if ($_POST)
 
 if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
     $tag = $_GET["tag"];
-    echo "<p class='alert alert-info'>Filter: <a href='?tag=' class='removeTag'>$tag</a></p>";
-    printLinksFromTag($tag);
+    //echo "<p class='alert alert-info'>Filter: <a href='?tag=' class='removeTag'>$tag</a></p>";
+    //printLinksFromTag($tag);
 } else {
-    include "allLinks.php";
+     // include "allLinks.php";
 }
 
 
