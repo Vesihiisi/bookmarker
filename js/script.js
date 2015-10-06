@@ -1,6 +1,14 @@
 $(document).ready(function() {
 
-    console.log("i'm working");
+    $.get("tagList.php")
+        .done(function(data) {
+            $("#tag-column").html(data);
+            $(".tag-list").stupidtable();
+            $(".clickable").click(function() {
+                location.href = $(this).find('td a').attr('href');
+            })
+        })
+
     $(".tag-list").sticky({
         topSpacing: 10
     });
@@ -34,18 +42,21 @@ $(document).ready(function() {
         var parent = $(this).parents(".entry");
         if (confirm("Are you sure?")) {
             var linkID = this.id;
-            $.post("delete.php", {linkID : linkID})
-            .done(function() {
-                parent.slideUp()
-            })
+            $.post("delete.php", {
+                    linkID: linkID
+                })
+                .done(function() {
+                    parent.slideUp()
+                })
         }
     })
 
-    $(".tag-list").stupidtable();
 
-    $(".clickable").click(function(){
-        location.href = $(this).find('td a').attr('href');
-    })
+
+
+
+
+
 
 
 });

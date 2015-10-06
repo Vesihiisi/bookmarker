@@ -205,7 +205,11 @@ if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
 
 ?></div>
 
-<div class="col-sm-3"><?php include"tagList.php";?></div>
+<div class="col-sm-3" id="tag-column">
+
+ <!--<?php include"tagList.php";?>-->
+
+</div>
 </div>
 
 
