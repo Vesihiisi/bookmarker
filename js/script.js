@@ -115,6 +115,35 @@ $(document).ready(function() {
                     })
             }
         })
+
+        $(".glyphicon-edit").on('click', function() {
+            var buttonSave = $("<button/>", {
+                text: "Save",
+                class: "btn btn-success"
+            })
+            var buttonCancel = $("<button/>", {
+                text: "Cancel",
+                class: "btn btn-warning"
+            })
+            var entry = $(this).parents(".entry");
+            var tagRow = entry.find(".tags")
+            var tags = []
+            tagRow.children().children().each(function(){
+                tags.push($(this).text())
+            })
+            var timestamp = entry.find(".timestamp");
+            var newTagField = $('<input/>', {
+                type: 'text',
+                value : tags.join(",")
+            })
+            timestamp.html(buttonCancel)
+            timestamp.append(buttonSave)
+            entry.append(newTagField)
+            newTagField.tagit({
+                singleField: true,
+            })
+            tagRow.html(newTagField)
+        })
     }
 
 
