@@ -5,6 +5,11 @@ body {
     background-color: white;
 }
 
+.alert, .btn, .dropdown-menu, .form-control {
+    border-radius: 0;
+    box-shadow: none;
+}
+
 .top-row {
     margin-top: 0.5em;
     text-align: right;
@@ -90,13 +95,14 @@ a:hover {
     display: block; width: 100%;
 }
 
+
+
 .btn > .glyphicon {
     padding-right: 0.5em;
 }
 
 .btn {
     border: none;
-    border-radius: 0;
 }
 
 .btn-primary {
@@ -204,8 +210,6 @@ a:hover {
 ul.tagit {
     background-color: white;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     cursor: text;
     font-size: 14px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
@@ -233,6 +237,3 @@ ul.tagit {
     color: #FFFFFF;
     padding: 5px 15px;
 }
-
-
-
