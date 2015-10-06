@@ -119,34 +119,44 @@ $(document).ready(function() {
         $(".glyphicon-edit").on('click', function() {
             var buttonSave = $("<button/>", {
                 text: "Save",
-                class: "btn btn-success"
+                class: "btn btn-success buttonSave"
             })
             var buttonCancel = $("<button/>", {
                 text: "Cancel",
-                class: "btn btn-warning"
+                class: "btn btn-warning buttonCancel"
             })
             var entry = $(this).parents(".entry");
             var tagRow = entry.find(".tagrow")
             var tagsDiv = entry.find(".tags")
             var tags = []
-            tagsDiv.children().children().each(function(){
+            tagsDiv.children().children().each(function() {
                 tags.push($(this).text())
             })
             var timestamp = entry.find(".timestamp");
             var newTagField = $('<input/>', {
                 type: 'text',
-                value : tags.join(","),
+                value: tags.join(","),
 
             })
-
+            var tagRowOrig = tagRow.html()
             tagRow.html(newTagField)
             newTagField.tagit({
                 singleField: true,
             })
             tagRow.append(buttonCancel)
             tagRow.append(buttonSave)
+            $(".buttonCancel").on('click', function() {
+                tagRow.html(tagRowOrig);
+            })
+            $(".buttonSave").on('click', function() {
+                console.log("save")
+            })
 
         })
+
+
+
+
     }
 
 
