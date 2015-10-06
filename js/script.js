@@ -1,4 +1,15 @@
 $(document).ready(function() {
+    function getUrlVars() {
+        var vars = [],
+            hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
 
     $.get("tagList.php")
         .done(function(data) {
@@ -7,6 +18,10 @@ $(document).ready(function() {
             $(".clickable").click(function() {
                 location.href = $(this).find('td a').attr('href');
             })
+            var tableRow = $("td").filter(function() {
+                return $(this).text() == getUrlVars()["tag"];
+            }).closest("tr");
+            tableRow.addClass("highlightedTag");
         })
 
     $(".tag-list").sticky({

@@ -20,11 +20,6 @@ function getTagsOfUser($userID)
 }
 
 function printTagList($queryResult) {
-    if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
-        $tagToHighlight = $_GET["tag"];
-    } else {
-        $tagToHighlight = null;
-    }
     echo "<table class='tag-list'>";
     echo "<thead>";
     echo "<tr><th data-sort='string'><span class='glyphicon glyphicon-tags'></span></th><th data-sort='int' class='text-right'><span class='glyphicon glyphicon-sort'></span></th></tr>";
@@ -32,13 +27,9 @@ function printTagList($queryResult) {
     echo "<tbody>";
     foreach ($queryResult as $row) {
         $tagName = $row["tag"];
-        if ($tagToHighlight == $tagName) {
-            $addHighlightClass = "highlightedTag";
-        } else {
-            $addHighlightClass = null;
-        }
+
         $count = $row["count"];
-        echo "<tr class= 'clickable $addHighlightClass' >";
+        echo "<tr class= 'clickable' >";
         echo "<td>";
         echo "<a href='?tag=$tagName'>$tagName</a>";
         echo "</td>";
