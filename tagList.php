@@ -23,8 +23,11 @@ function printTagList($queryResult) {
     } else {
         $tagToHighlight = null;
     }
-    echo "<div class='tag-list'>";
-    echo "<ul>";
+    echo "<table class='tag-list'>";
+    echo "<thead>";
+    echo "<tr><th data-sort='string'>tag</th><th data-sort='int' class='text-right'>count</th></tr>";
+    echo "</thead>";
+    echo "<tbody>";
     foreach ($queryResult as $row) {
         $tagName = $row["tag"];
         if ($tagToHighlight == $tagName) {
@@ -33,10 +36,17 @@ function printTagList($queryResult) {
             $addHighlightClass = null;
         }
         $count = $row["count"];
-        echo "<li $addHighlightClass><a href='?tag=$tagName'>$tagName<span class='tag-count'>$count</span></li>";
+        echo "<tr $addHighlightClass>";
+        echo "<td>";
+        echo "<a href='?tag=$tagName'>$tagName</a>";
+        echo "</td>";
+        echo "<td>";
+        echo "<span class='tag-count'>$count</span>";
+        echo "</td>";
+        echo "</tr>";
     }
-    echo "</ul>";
-    echo "</div>";
+    echo "</tbody>";
+    echo "</table>";
 }
 
 $tags = getTagsOfUser($userID);

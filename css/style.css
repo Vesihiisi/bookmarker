@@ -139,29 +139,31 @@ a:hover {
     width: 100%;
 }
 
-.tag-list > ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.tag-list a {
+    color: inherit;
 }
 
-.tag-list > ul > li {
-    border-bottom: 1px solid #e0e0e0;
+.tag-list thead {
+     display: table-header-group;
+     background-color: #ecdaf1;
+     color: #573566;
+}
+
+.tag-list th {
     padding: 0.25em;
     cursor: pointer;
 }
 
-.tag-list > ul > li:hover {
+.tag-list  tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tag-list  tr:hover {
     background-color: #F5F5F5;
 }
 
-.tag-list > ul > li a {
-    color: inherit;
-    display: block;
-}
-
-.tag-list > ul > li a:hover {
-
+.tag-list td {
+    padding: 0.25em;
 }
 
 .highlightedTag {

@@ -101,6 +101,7 @@ if ($_POST)
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
       <script src="js/jquery.sticky.js"></script>
       <script src="js/tag-it.min.js"></script>
+      <script src="js/stupidtable.min.js"></script>
       <script src="js/script.js"></script>
       <title>super bookmarker</title>
   </head>
