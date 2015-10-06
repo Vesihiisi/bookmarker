@@ -32,7 +32,7 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
             $_SESSION['EmailAddress'] = $res[0]['EmailAdress'];
             $_SESSION['LoggedIn'] = 1;
             echo "<h1>Success</h1>";
-            echo "<p>We are now redirecting you to the member area.</p>";
+            echo "<p>redirecting...</p>";
 
             header("Location: index.php");
         } else {
@@ -49,9 +49,8 @@ else
 {
     ?>
      
-   <h1>Member Login</h1>
      
-   <p>Thanks for visiting! Please either login below, or <a href="register.php">click here to register</a>.</p>
+   <p>Log in, or <a href="register.php">register</a>.</p>
      
     <form method="post" action="login.php" name="loginform" id="loginform">
     <fieldset>

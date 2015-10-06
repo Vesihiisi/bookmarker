@@ -41,12 +41,12 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
      
    <h1>Register</h1>
      
-   <p>Please enter your details below to register.</p>
      
     <form method="post" action="register.php" name="registerform" id="registerform">
     <fieldset>
         <label for="username">Username:</label><input type="text" name="username" id="username" /><br />
         <label for="password">Password:</label><input type="password" name="password" id="password" /><br />
+        insert repeat password here!!!!!<br>
         <label for="email">Email Address:</label><input type="text" name="email" id="email" /><br />
         <input type="submit" name="register" id="register" value="Register" />
     </fieldset>

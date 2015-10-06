@@ -155,11 +155,12 @@ if ($_POST)
 
 
 <div class="col-sm-9">
-<input type=search name=search class="form-control" placeholder="Search">
+<input type=search name=search class="form-control" placeholder="Search" disabled>
+<button class="btn btn-primary" id="showPanel"><span class="glyphicon glyphicon-pencil"></span>Add a new link</button>
+
 </div>
 
 <div class="col-sm-3">
-<button class="btn btn-primary" id="showPanel"><span class="glyphicon glyphicon-pencil"></span>Add a new link</button>
 
 </div>
 
