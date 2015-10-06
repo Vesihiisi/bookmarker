@@ -25,7 +25,7 @@ function printTagList($queryResult) {
     }
     echo "<table class='tag-list'>";
     echo "<thead>";
-    echo "<tr><th data-sort='string'>tag</th><th data-sort='int' class='text-right'>count</th></tr>";
+    echo "<tr><th data-sort='string'><span class='glyphicon glyphicon-tags'></span></th><th data-sort='int' class='text-right'><span class='glyphicon glyphicon-sort'></span></th></tr>";
     echo "</thead>";
     echo "<tbody>";
     foreach ($queryResult as $row) {
