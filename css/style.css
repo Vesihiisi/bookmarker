@@ -49,7 +49,10 @@ a:hover {
 
 .title {
     width: 90%;
-    float: left;
+}
+
+.middle-row {
+
 }
 
 .edit-links {

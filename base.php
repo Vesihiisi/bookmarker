@@ -3,6 +3,7 @@ session_start();
 
 include "config.php";
 
+
 function logIt($string)
 {
     $filename = "log.log";
@@ -62,13 +63,15 @@ function printEntry($rowFromDb)
     $linkID = $rowFromDb["linkID"];
     $userID = $_SESSION['UserID'];
     echo "<div class='entry'>";
+        echo "<div class='edit-links'><span class='glyphicon glyphicon-remove' data-toggle='tooltip' title='delete' id=$linkID></span></div>";
     echo "<div class='title-bar'>";
     echo "<div class='title'>";
     echo "<a href='$url'>$title</a>";
     echo "</div>";
-    echo "<div class='edit-links'><span class='glyphicon glyphicon-remove' data-toggle='tooltip' title='delete' id=$linkID></span></div>";
     echo "</div>";
+        echo "<div class='middle-row'>";
     echo "<p>$domain</p>";
+    echo "</div>";
     $tags = getTags($linkID, $userID);
     echo "<div class='tagrow'>";
     if (count($tags) > 0) {
