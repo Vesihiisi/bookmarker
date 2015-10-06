@@ -26,6 +26,10 @@ $(document).ready(function() {
         animation: true,
     });
 
+    $(".glyphicon-edit").tooltip({
+        animation: true,
+    });
+
     $(".glyphicon-remove").on('click', function() {
         var parent = $(this).parents(".entry");
         if (confirm("Are you sure?")) {

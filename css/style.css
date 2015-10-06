@@ -75,6 +75,11 @@ a:hover {
 
 .edit-links > .glyphicon {
     cursor: pointer;
+    padding-right: 5px;
+}
+
+.edit-links > .glyphicon:hover {
+    color: #D91E18;
 }
 
 .timestamp {

@@ -63,7 +63,10 @@ function printEntry($rowFromDb)
     $linkID = $rowFromDb["linkID"];
     $userID = $_SESSION['UserID'];
     echo "<div class='entry'>";
-        echo "<div class='edit-links'><span class='glyphicon glyphicon-remove' data-toggle='tooltip' title='delete' id=$linkID></span></div>";
+    echo "<div class='edit-links'>";
+    echo "<span class='glyphicon glyphicon-edit' data-toggle='tooltip' title='edit' id=$linkID></span>";
+    echo "<span class='glyphicon glyphicon-remove' data-toggle='tooltip' title='delete' id=$linkID></span>";
+    echo "</div>";
     echo "<div class='title-bar'>";
     echo "<div class='title'>";
     echo "<a href='$url'>$title</a>";
