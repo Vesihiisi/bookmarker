@@ -126,23 +126,26 @@ $(document).ready(function() {
                 class: "btn btn-warning"
             })
             var entry = $(this).parents(".entry");
-            var tagRow = entry.find(".tags")
+            var tagRow = entry.find(".tagrow")
+            var tagsDiv = entry.find(".tags")
             var tags = []
-            tagRow.children().children().each(function(){
+            tagsDiv.children().children().each(function(){
                 tags.push($(this).text())
             })
             var timestamp = entry.find(".timestamp");
             var newTagField = $('<input/>', {
                 type: 'text',
-                value : tags.join(",")
+                value : tags.join(","),
+
             })
-            timestamp.html(buttonCancel)
-            timestamp.append(buttonSave)
-            entry.append(newTagField)
+
+            tagRow.html(newTagField)
             newTagField.tagit({
                 singleField: true,
             })
-            tagRow.html(newTagField)
+            tagRow.append(buttonCancel)
+            tagRow.append(buttonSave)
+
         })
     }
 

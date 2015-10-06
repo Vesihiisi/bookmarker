@@ -125,7 +125,12 @@ a:hover {
 
 .entry {
     border-bottom: 1px solid #e0e0e0;
+    overflow: auto;
+}
 
+.tagrow > ul.tagit {
+    width: 75%;
+    float: left;
 }
 
 .title a {
