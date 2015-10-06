@@ -116,6 +116,8 @@ $(document).ready(function() {
             }
         })
 
+
+
         $(".glyphicon-edit").on('click', function() {
             var buttonSave = $("<button/>", {
                 text: "Save",
@@ -139,6 +141,8 @@ $(document).ready(function() {
 
             })
             var tagRowOrig = tagRow.html()
+            var thisEditButton = $(this)
+            thisEditButton.off()
             tagRow.html(newTagField)
             newTagField.tagit({
                 singleField: true,
