@@ -120,6 +120,12 @@ if ($_POST)
 <div class="row top-row">
 <div class="col-sm-12">
 
+
+
+
+
+
+
 <div class="navbar-header">
  <div class="dropdown">
   <span class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo $username ?>
@@ -147,7 +153,25 @@ if ($_POST)
 
 <div class="user-menu"> 
 
+
+<div class="col-sm-9">
+<input type=search name=search class="form-control" placeholder="Search">
+</div>
+
+<div class="col-sm-3">
 <button class="btn btn-primary" id="showPanel"><span class="glyphicon glyphicon-pencil"></span>Add a new link</button>
+
+</div>
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="addURLPanel">
