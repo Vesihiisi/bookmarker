@@ -27,7 +27,7 @@ if(!empty($_POST['username']) && !empty($_POST['password']))
 
         $hash = $res[0]['Password'];
         if (password_verify($password, $hash)) {
-            $_SESSION['Username'] = $username;
+            $_SESSION['Username'] = $res[0]['Username'];
             $_SESSION['UserID']= $res[0]['UserID'];
             $_SESSION['EmailAddress'] = $res[0]['EmailAdress'];
             $_SESSION['LoggedIn'] = 1;
