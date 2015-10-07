@@ -78,6 +78,14 @@ $(document).ready(function() {
     var urlParams = getUrlVars();
     loadLinks()
 
+    function updateUserCount() {
+        var count = $("#userCount");
+        $.get("getCount.php")
+        .done(function(data) {
+            count.text(data)
+        })
+    }
+
     function loadLinks() {
         if (urlParams.length == 0) {
             $(".entries").html("loading.......")
@@ -88,6 +96,7 @@ $(document).ready(function() {
 
         }
         loadTagList();
+        updateUserCount();
     }
 
 

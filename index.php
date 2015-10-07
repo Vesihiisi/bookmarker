@@ -65,7 +65,7 @@ if ($_POST)
  <div class="dropdown">
   <span class="dropdown-toggle" data-toggle="dropdown">
   <span class="glyphicon glyphicon-user"></span>
-  <?php echo $username ?> (<?php echo getLinkCountFromUser($userID) ?>)
+  <?php echo $username ?> (<span id="userCount"></span>)
   <span class="caret"></span></span>
   <ul class="dropdown-menu pull-right">
       <li class="disabled"><a href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
