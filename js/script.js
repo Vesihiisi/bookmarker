@@ -151,14 +151,30 @@ $(document).ready(function() {
     }
 
     function makeEntryEditable(entry) {
-        var buttonSave = $("<button/>", {
-            text: "Save",
-            class: "btn btn-success buttonSave"
-        })
-        var buttonCancel = $("<button/>", {
-            text: "Cancel",
-            class: "btn btn-warning buttonCancel"
-        })
+        function generateCancelButton() {
+            var icon = $("<span/>", {
+                class: "glyphicon glyphicon-remove-circle"
+            })
+            var buttonCancel = $("<button/>", {
+                text: "Cancel",
+                class: "btn btn-warning buttonCancel"
+            })
+            buttonCancel.prepend(icon)
+            return buttonCancel;
+        }
+
+        function generateSaveButton() {
+            var icon = $("<span/>", {
+                class: "glyphicon glyphicon-ok-circle"
+            })
+            var buttonSave = $("<button/>", {
+                text: "Save",
+                class: "btn btn-success buttonSave"
+            })
+            buttonSave.prepend(icon)
+            return buttonSave;
+        }
+
         var entryID = entry.find(".glyphicon-edit").attr('id')
         var title = entry.find(".title");
         var titleOrig = title.html();
@@ -180,6 +196,8 @@ $(document).ready(function() {
         newTagField.tagit({
             singleField: true,
         })
+        var buttonCancel = generateCancelButton();
+        var buttonSave = generateSaveButton();
         tagRow.append(buttonCancel)
         tagRow.append(buttonSave)
         var newTitleField = $('<input/>', {
@@ -188,26 +206,26 @@ $(document).ready(function() {
             value: titleText,
         })
         title.html(newTitleField)
-        $(".buttonCancel").on('click', function() {
+        buttonCancel.on('click', function() {
             title.html(titleOrig)
             tagRow.html(tagRowOrig);
             activateAllEditButtons();
         })
-        $(".buttonSave").on('click', function() {
+        buttonSave.on('click', function() {
             console.log("save")
             titleText = $(".edit-title").val()
             tags = $("#newTagField").val();
             data = {
-                title : titleText,
-                tags : tags,
-                linkID : entryID
+                title: titleText,
+                tags: tags,
+                linkID: entryID
             }
             console.log(titleText);
             console.log(tags)
             $.post("update.php", data)
-            .done(function() {
-                loadLinks()
-            })
+                .done(function() {
+                    loadLinks()
+                })
         })
     }
 
