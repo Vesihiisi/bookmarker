@@ -17,7 +17,7 @@ function createTableUsers() {
 
 function createTableLinks()
 {
-    $query ="CREATE TABLE IF NOT EXISTS links (linkID INT AUTO_INCREMENT NOT NULL, userID int(11) NOT NULL, url varchar(2083) NOT NULL, title varchar(300), timestamp DATETIME NOT NULL, PRIMARY KEY (linkID))";
+    $query ="CREATE TABLE IF NOT EXISTS links (linkID INT AUTO_INCREMENT NOT NULL, userID int(11) NOT NULL, url varchar(2083) NOT NULL, title varchar(300), timestamp DATETIME NOT NULL, PRIMARY KEY (linkID)) CHARACTER SET=utf8";
     try
     {
         $db = connectToDb();
@@ -30,7 +30,7 @@ function createTableLinks()
 }
 
 function createTableTags() {
-    $query ="CREATE TABLE IF NOT EXISTS tags (tagID INT AUTO_INCREMENT NOT NULL, tag varchar(30) NOT NULL, PRIMARY KEY (tagID))";
+    $query ="CREATE TABLE IF NOT EXISTS tags (tagID INT AUTO_INCREMENT NOT NULL, tag varchar(30) NOT NULL, PRIMARY KEY (tagID)) CHARACTER SET=utf8";
     try
     {
         $db = connectToDb();
