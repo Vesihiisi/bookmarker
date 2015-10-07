@@ -32,6 +32,7 @@ $(document).ready(function() {
     function loadTagList() {
         $.get("tagList.php")
             .done(function(data) {
+                console.log(data)
                 $("#tag-column").html(data);
                 $(".tag-list").stupidtable();
                 $(".clickable").click(function() {

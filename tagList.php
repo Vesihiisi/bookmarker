@@ -43,4 +43,9 @@ function printTagList($queryResult) {
 }
 
 $tags = getTagsOfUser($userID);
-printTagList($tags);
+if (count($tags) > 0) {
+    printTagList($tags);
+} else {
+    echo "you have no tags";
+}
+
