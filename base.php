@@ -55,8 +55,12 @@ function getPageTitle($url)
     curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
     $output = curl_exec($ch);
     curl_close($ch);
-    preg_match("/<title>(.+)<\/title>/siU", $output , $result);
-    return htmlspecialchars_decode($result[1], ENT_QUOTES);
+    $doc = new DOMDocument();
+    @$doc->loadHTML($output);
+    $nodes = $doc->getElementsByTagName('title');
+    $title = $nodes->item(0)->nodeValue;
+    $title = trim($title);
+    return $title;
 }
 
 function printEntry($rowFromDb)
