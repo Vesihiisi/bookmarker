@@ -142,3 +142,10 @@ function printAllLinks($userID)
         printEntry($row);
     }
 }
+
+function getLinkCountFromUser($userID) {
+    $query = "SELECT count(*) as 'count' from links WHERE userID = ?";
+    $params = [$userID];
+    $res = selectQuery($query, $params);
+    return $res[0]["count"];
+}

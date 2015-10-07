@@ -4,6 +4,7 @@ include "base.php";
 include "check.php";
 
 $username = $_SESSION['Username'];
+$userID = $_SESSION['UserID'];
 
 
 
@@ -62,7 +63,9 @@ if ($_POST)
 
 <div class="navbar-header">
  <div class="dropdown">
-  <span class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo $username ?>
+  <span class="dropdown-toggle" data-toggle="dropdown">
+  <span class="glyphicon glyphicon-user"></span>
+  <?php echo $username ?> (<?php echo getLinkCountFromUser($userID) ?>)
   <span class="caret"></span></span>
   <ul class="dropdown-menu pull-right">
       <li class="disabled"><a href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
@@ -144,8 +147,6 @@ if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
 ?></div>
 
 <div class="col-sm-3" id="tag-column">
-
- <!--<?php include"tagList.php";?>-->
 
 </div>
 </div>
