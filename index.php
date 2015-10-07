@@ -9,11 +9,11 @@ $userID = $_SESSION['UserID'];
 
 
 if ($_POST)
-    {
+{
 //     processPost($_POST);
-   header("Location: " . $_SERVER['REQUEST_URI']);
-   exit();
-  }
+header("Location: " . $_SERVER['REQUEST_URI']);
+exit();
+}
 
 ?>
 
@@ -23,25 +23,11 @@ if ($_POST)
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-      <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
-      <link href="css/jquery.tagit.css" rel="stylesheet" type="text/css">
+<head>
+<?php include 'head.php';?>
+</head>
 
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <script src="js/jquery.sticky.js"></script>
-      <script src="js/tag-it.min.js"></script>
-      <script src="js/stupidtable.min.js"></script>
-      <script src="js/script.js"></script>
-      <title>super bookmarker</title>
-  </head>
-
-  <body>
+<body>
 
 
 
@@ -49,28 +35,22 @@ if ($_POST)
 
 
 
-  <div class="container">
+<div class="container">
 
 
 <div class="row top-row">
 <div class="col-sm-12">
 
-
-
-
-
-
-
 <div class="navbar-header">
- <div class="dropdown">
-  <span class="dropdown-toggle" data-toggle="dropdown">
-  <span class="glyphicon glyphicon-user"></span>
-  <?php echo $username ?> (<span id="userCount"></span>)
-  <span class="caret"></span></span>
-  <ul class="dropdown-menu pull-right">
-      <li class="disabled"><a href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
-    <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Sign out</a></li>
-  </ul>
+<div class="dropdown">
+<span class="dropdown-toggle" data-toggle="dropdown">
+<span class="glyphicon glyphicon-user"></span>
+<?php echo $username ?> (<span id="userCount"></span>)
+<span class="caret"></span></span>
+<ul class="dropdown-menu pull-right">
+<li class="disabled"><a href="#"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Sign out</a></li>
+</ul>
 </div>
 </div>
 
@@ -81,12 +61,16 @@ if ($_POST)
 
 
 
-  <div class="page-header">
+<div class="page-header">
 
-    <h1>Super bookmarker</h1>
-  </div>
+<h1>Super bookmarker</h1>
+</div>
+
+
+
+
 <div class="row">
-  <div class="col-sm-9">
+<div class="col-sm-9">
 
 <div class="user-menu"> 
 
@@ -135,11 +119,11 @@ if ($_POST)
 <?php
 
 if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
-    $tag = $_GET["tag"];
-    //echo "<p class='alert alert-info'>Filter: <a href='?tag=' class='removeTag'>$tag</a></p>";
-    //printLinksFromTag($tag);
+$tag = $_GET["tag"];
+//echo "<p class='alert alert-info'>Filter: <a href='?tag=' class='removeTag'>$tag</a></p>";
+//printLinksFromTag($tag);
 } else {
-     // include "allLinks.php";
+// include "allLinks.php";
 }
 
 
@@ -154,8 +138,8 @@ if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
 
 
 
-  </div>
-  </body>
+</div>
+</body>
 
 
 
