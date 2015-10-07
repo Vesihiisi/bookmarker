@@ -51,6 +51,10 @@ $(document).ready(function() {
         addFunctionsToEntryInterface();
     }
 
+    function reloadContent() {
+        
+    }
+
     var urlParams = getUrlVars();
 
     if (urlParams.length == 0) {
@@ -82,7 +86,6 @@ $(document).ready(function() {
         console.log("click");
         $(".addURLPanel").slideToggle();
     })
-
 
 
     function addFunctionsToEntryInterface() {
@@ -151,6 +154,7 @@ $(document).ready(function() {
         var newTagField = $('<input/>', {
             type: 'text',
             value: tags.join(","),
+            id: "newTagField",
         })
         var tagRowOrig = tagRow.html()
         tagRow.html(newTagField)
@@ -161,7 +165,7 @@ $(document).ready(function() {
         tagRow.append(buttonSave)
         var newTitleField = $('<input/>', {
             type: 'text',
-            class: 'form-control edit-title',
+            class: 'edit-title',
             value: titleText,
         })
         title.html(newTitleField)
@@ -173,8 +177,35 @@ $(document).ready(function() {
         })
         $(".buttonSave").on('click', function() {
             console.log("save")
+            titleText = $(".edit-title").val()
+            tags = $("#newTagField").val();
+            console.log(titleText);
+            console.log(tags)
         })
     }
+
+    function addEntry() {
+        var url = $("#url").val()
+        var tags = $("#tagForm").tagit("assignedTags").join(",")
+        console.log(tags)
+        var data = { url: url, tags: tags };
+        $.post("add.php", data)
+        .done(function(data) {
+            console.log(data)
+        })
+    }
+
+    $("#addEntryButton").click(function(e) {
+        e.preventDefault()
+        addEntry();
+    })
+
+    $("#addURl").on('submit', function(e) {
+        e.preventDefault()
+        addEntry();
+    })
+
+
 
 
 

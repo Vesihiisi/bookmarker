@@ -5,80 +5,14 @@ include "check.php";
 
 $username = $_SESSION['Username'];
 
-function stringToArray($string)
-    {
-    return explode(",", $string);
-    }
 
-function checkIfUserAlreadyHasThisUrl($url, $userID) {
-    $query = "SELECT * from links where url = ? and userID = ?";
-    $params = [$url, $userID];
-    $result = selectQuery($query, $params);
-    if (count($result) == 1) {
-        return 0;
-    } else {
-        return 1;
-    }
-}
-
-function processPost($data)
-    {
-    $userID = $_SESSION['UserID'];
-    $url = $data["url"];
-    if (filter_var($url, FILTER_VALIDATE_URL) === false)
-        {
-        header("Location: " . $_SERVER['REQUEST_URI']);
-        exit();
-        }
-      else
-        {
-        if (checkIfUserAlreadyHasThisUrl($url, $userID) == 0) {
-            echo "link already exists";
-            break;
-        } else {
-                    $title = getPageTitle($url);
-        $query = "INSERT into links (userID, url, title, timestamp) VALUES (?, ?, ?, now())";
-        $params = [$userID, $url, $title];
-        $lastInserted = editQuery($query, $params);
-        if (strlen($_POST["tags"]) > 0) {
-            $tagString = strtolower($_POST["tags"]);
-            $tags = stringToArray($tagString);
-            $tags = array_unique($tags);
-            foreach($tags as $tag)
-                {
-                $query = "SELECT * from tags WHERE tag = ?";
-                $params = [$tag];
-                $res = selectQuery($query, $params);
-                if (count($res) == 0)
-                    {
-                    $query = "INSERT into tags (tag) VALUES (?)";
-                    $params = [$tag];
-                    editQuery($query, $params);
-                    }
-                }
-
-            foreach($tags as $tag)
-                {
-                $query = "SELECT tagID from tags WHERE tag = ?";
-                $params = [$tag];
-                $res = selectQuery($query, $params);
-                $tagID = $res[0]["tagID"];
-                $query = "INSERT into taggedlinks (tagID, linkID) VALUES (?, ?)";
-                $params = [$tagID, $lastInserted];
-                editQuery($query, $params);
-                }
-            }
-        }
-        }
-
-    }
 
 if ($_POST)
     {
-    processPost($_POST);
-    header("Location: " . $_SERVER['REQUEST_URI']);
-    exit();
-    }
+//     processPost($_POST);
+   header("Location: " . $_SERVER['REQUEST_URI']);
+   exit();
+  }
 
 ?>
 
@@ -185,7 +119,7 @@ if ($_POST)
 <label for="tags">TAGS:</label>
 <input type="tags" name="tags" id="tagForm">
 </div>
-<button type="submit" value="add" class="btn btn-primary fullWidthButton">add</button>
+<button type="submit" value="add" class="btn btn-primary fullWidthButton" id="addEntryButton">add</button>
 </form>
 </div>
 
