@@ -12,6 +12,11 @@ function logIt($string)
     fclose($fh);
 }
 
+function stringToArray($string)
+{
+    return explode(",", $string);
+}
+
 function connectToDb()
 {
     try {
@@ -148,4 +153,18 @@ function getLinkCountFromUser($userID) {
     $params = [$userID];
     $res = selectQuery($query, $params);
     return $res[0]["count"];
+}
+
+function deleteConnections($id)
+{
+    $query = "DELETE from taggedlinks where linkID = ?";
+    $params = [$id];
+    editQuery($query, $params);
+}
+
+function deleteEntry($id)
+{
+    $query = "DELETE from links where linkID = ?";
+    $params = [$id];
+    editQuery($query, $params);
 }

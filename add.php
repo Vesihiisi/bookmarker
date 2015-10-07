@@ -9,10 +9,7 @@ echo $url;
 echo $tags;
 echo $userID;
 
-function stringToArray($string)
-{
-    return explode(",", $string);
-}
+
 
 function checkIfUserAlreadyHasThisUrl($url, $userID) {
     $query = "SELECT * from links where url = ? and userID = ?";
