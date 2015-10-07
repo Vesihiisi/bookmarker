@@ -134,7 +134,7 @@ $(document).ready(function() {
                         linkID: linkID
                     })
                     .done(function() {
-                        parent.slideUp()
+                        loadLinks()
                     })
             }
         })
@@ -213,6 +213,9 @@ $(document).ready(function() {
         $.post("add.php", data)
             .done(function(data) {
                 console.log(data)
+                $("#url").val("");
+                $("#tagForm").tagit("removeAll")
+                $(".addURLPanel").hide();
                 loadLinks()
             })
     }
