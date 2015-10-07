@@ -60,11 +60,30 @@ exit();
 </div>
 
 
+    <div class='page-header row'>
 
-<div class="page-header">
 
-<h1>Super bookmarker</h1>
-</div>
+      <div class="col-sm-6">
+               <h1>Super bookmarker</h1>
+      </div>
+
+
+
+  <div class="col-sm-6">
+              <div class="search-container">
+            <input type="search" class="search form-control" placeholder="Search" name="search" id="search"/>
+            </div>
+  </div>
+
+
+
+
+
+
+
+
+
+    </div>
 
 
 
@@ -76,7 +95,6 @@ exit();
 
 
 <div class="col-sm-9">
-<input type=search name=search class="form-control" placeholder="Search" disabled>
 <button class="btn btn-primary" id="showPanel"><span class="glyphicon glyphicon-pencil"></span>Add a new link</button>
 
 </div>

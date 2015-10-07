@@ -5,8 +5,27 @@ body {
     background-color: white;
 }
 
+h1, h2 {
+    font-size: 24px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
 .alert, .btn, .dropdown-menu, .form-control {
     border-radius: 0;
+    box-shadow: none;
+}
+
+input[type]:focus {
+    outline: 0 none;
+    box-shadow: none;
+}
+
+input[type] {
+    border:none;
+    border-bottom:1px solid #9b59b6;
     box-shadow: none;
 }
 
@@ -16,7 +35,7 @@ body {
 }
 
 .page-header {
-    margin-top: 0;
+    margin-top: 1em;
 }
 
 .navbar-header {
@@ -256,4 +275,8 @@ ul.tagit {
     background-color: black; 
     color: #FFFFFF;
     padding: 5px 15px;
+}
+
+.page-header {
+    overflow: hidden;          
 }
