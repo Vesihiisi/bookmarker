@@ -94,6 +94,8 @@ $(document).ready(function() {
             animation: true,
         });
 
+        activateAllEditButtons()
+
         $(".entry").hover(function() {
             $(this).children(".edit-links").css(
                 "color", "#3A3A3A")
@@ -116,51 +118,62 @@ $(document).ready(function() {
             }
         })
 
+    }
 
 
-        $(".glyphicon-edit").on('click', function() {
-            var buttonSave = $("<button/>", {
-                text: "Save",
-                class: "btn btn-success buttonSave"
-            })
-            var buttonCancel = $("<button/>", {
-                text: "Cancel",
-                class: "btn btn-warning buttonCancel"
-            })
+    function activateAllEditButtons() {
+        $(".glyphicon-edit").click(function() {
             var entry = $(this).parents(".entry");
-            var tagRow = entry.find(".tagrow")
-            var tagsDiv = entry.find(".tags")
-            var tags = []
-            tagsDiv.children().children().each(function() {
-                tags.push($(this).text())
-            })
-            var timestamp = entry.find(".timestamp");
-            var newTagField = $('<input/>', {
-                type: 'text',
-                value: tags.join(","),
-
-            })
-            var tagRowOrig = tagRow.html()
-            var thisEditButton = $(this)
-            thisEditButton.off()
-            tagRow.html(newTagField)
-            newTagField.tagit({
-                singleField: true,
-            })
-            tagRow.append(buttonCancel)
-            tagRow.append(buttonSave)
-            $(".buttonCancel").on('click', function() {
-                tagRow.html(tagRowOrig);
-            })
-            $(".buttonSave").on('click', function() {
-                console.log("save")
-            })
-
+            makeEntryEditable(entry)
+            $(".glyphicon-edit").off('click')
         })
+    }
 
-
-
-
+    function makeEntryEditable(entry) {
+        var buttonSave = $("<button/>", {
+            text: "Save",
+            class: "btn btn-success buttonSave"
+        })
+        var buttonCancel = $("<button/>", {
+            text: "Cancel",
+            class: "btn btn-warning buttonCancel"
+        })
+        var title = entry.find(".title");
+        var titleOrig = title.html();
+        var titleText = title.text();
+        var tagRow = entry.find(".tagrow");
+        var tagsDiv = entry.find(".tags");
+        var tags = [];
+        tagsDiv.children().children().each(function() {
+            tags.push($(this).text());
+        })
+        var timestamp = entry.find(".timestamp");
+        var newTagField = $('<input/>', {
+            type: 'text',
+            value: tags.join(","),
+        })
+        var tagRowOrig = tagRow.html()
+        tagRow.html(newTagField)
+        newTagField.tagit({
+            singleField: true,
+        })
+        tagRow.append(buttonCancel)
+        tagRow.append(buttonSave)
+        var newTitleField = $('<input/>', {
+            type: 'text',
+            class: 'form-control edit-title',
+            value: titleText,
+        })
+        title.html(newTitleField)
+        $(".buttonCancel").on('click', function() {
+            console.log(titleOrig)
+            title.html(titleOrig)
+            tagRow.html(tagRowOrig);
+            activateAllEditButtons();
+        })
+        $(".buttonSave").on('click', function() {
+            console.log("save")
+        })
     }
 
 
