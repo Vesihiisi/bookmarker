@@ -135,6 +135,28 @@ function printLinksFromTag($tag)
     }
 }
 
+function getLinksFromSearch($searchTerm)
+{
+    $userID = $_SESSION['UserID'];
+    $query = "SELECT linkID from links where title like %?% AND userID = ?";
+    $params = [$searchTerm, $userID];
+    $linkIds = array();
+    $res = selectQuery($query, $params);
+    foreach ($res as $row) {
+        array_push($linkIds, $row["linkID"]) ;
+    }
+    return $linkIds;
+}
+
+function printLinksFromSearch($searchTerm)
+{
+    $linkIds = getLinksFromSearch($searchTerm);
+    foreach ($linkIds as $row) {
+        $link = getLinkFromId($row)[0];
+        printEntry($link);
+    }
+}
+
 function getTags($linkID, $userID)
 {
   $query = "select taggedlinks.tagID, tag, links.userID from taggedlinks, tags, links WHERE taggedlinks.linkID = ? AND taggedlinks.linkID = links.linkID AND taggedlinks.tagID = tags.tagID AND links.userID = ?;";
