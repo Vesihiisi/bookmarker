@@ -87,6 +87,20 @@ a:hover {
     color: #D91E18;
 }
 
+.edit-title {
+    width: 95%;
+  border:none;
+  font-size: 20px;
+  color: #6D6D6D;
+  border-bottom:1px solid #9b59b6;
+  box-shadow: none;
+}
+
+.edit-title: focus {
+    outline: none;
+    box-shadow: none;
+}
+
 .timestamp {
     font-size: 80%;
 }
