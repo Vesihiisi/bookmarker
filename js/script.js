@@ -159,6 +159,7 @@ $(document).ready(function() {
             text: "Cancel",
             class: "btn btn-warning buttonCancel"
         })
+        var entryID = entry.find(".glyphicon-edit").attr('id')
         var title = entry.find(".title");
         var titleOrig = title.html();
         var titleText = title.text();
@@ -188,7 +189,6 @@ $(document).ready(function() {
         })
         title.html(newTitleField)
         $(".buttonCancel").on('click', function() {
-            console.log(titleOrig)
             title.html(titleOrig)
             tagRow.html(tagRowOrig);
             activateAllEditButtons();
@@ -197,8 +197,17 @@ $(document).ready(function() {
             console.log("save")
             titleText = $(".edit-title").val()
             tags = $("#newTagField").val();
+            data = {
+                title : titleText,
+                tags : tags,
+                linkID : entryID
+            }
             console.log(titleText);
             console.log(tags)
+            $.post("update.php", data)
+            .done(function() {
+                loadLinks()
+            })
         })
     }
 

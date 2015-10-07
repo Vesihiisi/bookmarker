@@ -126,7 +126,7 @@ if ($_POST)
 </form>
 </div>
 
-<div class="entries">
+<div class="entries" id="entries">
 </div>
 
 
