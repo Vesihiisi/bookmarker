@@ -29,42 +29,41 @@ $(document).ready(function() {
         parent.prepend(alert)
     }
 
-
-    $.get("tagList.php")
-        .done(function(data) {
-            $("#tag-column").html(data);
-            $(".tag-list").stupidtable();
-            $(".clickable").click(function() {
-                location.href = $(this).find('td a').attr('href');
+    function loadTagList() {
+        $.get("tagList.php")
+            .done(function(data) {
+                $("#tag-column").html(data);
+                $(".tag-list").stupidtable();
+                $(".clickable").click(function() {
+                    location.href = $(this).find('td a').attr('href');
+                })
+                var tableRow = $("td").filter(function() {
+                    return $(this).text() == getUrlVars()["tag"];
+                }).closest("tr");
+                tableRow.addClass("highlightedTag");
+                $(".tag-list").sticky({
+                    topSpacing: 10
+                });
             })
-            var tableRow = $("td").filter(function() {
-                return $(this).text() == getUrlVars()["tag"];
-            }).closest("tr");
-            tableRow.addClass("highlightedTag");
-            $(".tag-list").sticky({
-                topSpacing: 10
-            });
-        })
+    }
+
+
+
 
     function fillEntries(data) {
         $(".entries").html(data);
         addFunctionsToEntryInterface();
     }
 
-    function reloadContent() {
-        
-    }
 
-    var urlParams = getUrlVars();
-
-    if (urlParams.length == 0) {
-        $(".entries").html("loading.......")
+    function loadAllLinks() {
         $.get("allLinks.php")
             .done(function(data) {
                 fillEntries(data);
             })
-    } else {
-        var tag = urlParams["tag"];
+    }
+
+    function loadTaggedLinks(tag) {
         $.get("tagLinks.php", {
                 tag: tag
             })
@@ -73,6 +72,25 @@ $(document).ready(function() {
                 printAlert(tag, $(".entries"))
             })
     }
+
+
+
+    var urlParams = getUrlVars();
+    loadLinks()
+
+    function loadLinks() {
+        if (urlParams.length == 0) {
+            $(".entries").html("loading.......")
+            loadAllLinks()
+        } else {
+            var tag = urlParams["tag"];
+            loadTaggedLinks(tag)
+
+        }
+        loadTagList();
+    }
+
+
 
 
 
@@ -188,11 +206,15 @@ $(document).ready(function() {
         var url = $("#url").val()
         var tags = $("#tagForm").tagit("assignedTags").join(",")
         console.log(tags)
-        var data = { url: url, tags: tags };
+        var data = {
+            url: url,
+            tags: tags
+        };
         $.post("add.php", data)
-        .done(function(data) {
-            console.log(data)
-        })
+            .done(function(data) {
+                console.log(data)
+                loadLinks()
+            })
     }
 
     $("#addEntryButton").click(function(e) {
