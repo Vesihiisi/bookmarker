@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set(date_default_timezone_get());
 
 include "config.php";
 
@@ -69,6 +70,9 @@ function printEntry($rowFromDb)
     $domain = parse_url($url)["host"];
     $title = htmlspecialchars($rowFromDb["title"]);
     $timestamp = $rowFromDb["timestamp"];
+    $Date = new DateTime($timestamp);
+    $Date->setTimezone(new DateTimeZone('Europe/Stockholm'));
+    $timestamp = $Date->format('d/m/Y H:i'); 
     $linkID = $rowFromDb["linkID"];
     $userID = $_SESSION['UserID'];
     echo "<div class='entry'>";
