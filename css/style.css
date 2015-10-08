@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:700,400);
+
 html {
        overflow-y: scroll;
 }
@@ -6,7 +8,9 @@ body {
 }
 
 h1, h2 {
-    font-size: 24px;
+    font-size: 34px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
 }
 
 h1 {
@@ -288,3 +292,4 @@ ul.tagit {
 .page-header {
     overflow: hidden;          
 }
+
