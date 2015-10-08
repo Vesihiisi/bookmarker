@@ -288,9 +288,15 @@ ul.tagit {
 }
 
 .tooltip > .tooltip-inner {
-    background-color: black; 
-    color: #FFFFFF;
+    background-color: #ffd88f; 
+    color: black;
+    font-size: 16px;
     padding: 5px 15px;
+    border-radius: 2px;
+}
+
+.tooltip.top > .tooltip-arrow {
+    border-top: 5px solid #ffd88f;
 }
 
 .page-header {
