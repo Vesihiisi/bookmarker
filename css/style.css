@@ -33,7 +33,7 @@ input[type]:focus {
 
 input[type] {
     border:none;
-    border-bottom:1px solid #9b59b6;
+    border-bottom:1px solid #5e6e8d;
     box-shadow: none;
 }
 
@@ -59,8 +59,13 @@ input[type] {
     text-align: right;
 }
 
-.search-field {
+.search-field  {
     width: 100%;
+}
+
+.search-field > input {
+    font-size: 16px;
+    color: #5e6e8d;
 }
 
 a {
@@ -127,7 +132,7 @@ a:hover {
   border:none;
   font-size: 20px;
   color: #6D6D6D;
-  border-bottom:1px solid #9b59b6;
+  border-bottom:1px solid #5e6e8d;
   box-shadow: none;
 }
 
@@ -264,7 +269,8 @@ a:hover {
 
 ul.tagit {
     background-color: white;
-    border: 1px solid #ccc;
+    border: 0;
+    border-bottom: 1px solid #5e6e8d;
     cursor: text;
     font-size: 14px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
