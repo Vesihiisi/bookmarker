@@ -4,6 +4,10 @@ html {
        overflow-y: scroll;
 }
 body {
+    background-color: #FFD88F;
+}
+
+.container {
     background-color: white;
 }
 
@@ -195,16 +199,16 @@ a:hover {
 .tag {
     padding: 0.4em 0.5em;
     font-size: 12px;
-    background-color: #ECDAF1;
+    background-color: #5E6E8D;
     margin: 2px 5px 2px 0;
     line-height: 1;
     transition: background 0.15s ease 0s, color 0.15s ease 0s;
     cursor: pointer;
-    color: #573566;
+    color: white;
 }
 
 .tag:hover {
-    background-color: #C3A3CC;
+    background-color: #4B5870;
     color: white;
 }
 
@@ -223,8 +227,8 @@ a:hover {
 
 .tag-list thead {
      display: table-header-group;
-     background-color: #ecdaf1;
-     color: #573566;
+     background-color: #5E6E8D;
+     color: white;
 }
 
 .tag-list th {
@@ -237,7 +241,7 @@ a:hover {
     cursor: pointer;
 }
 
-.tag-list  tr:hover {
+.tag-list  tbody > tr:hover {
     background-color: #F5F5F5;
 }
 
@@ -269,13 +273,13 @@ ul.tagit {
 
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
     background: none;
-    background-color: #ECDAF1;
+    background-color: #5E6E8D;
     border: none;
     border-radius: 0;
 }
 
 .tagit-label {
-    color: #573566;
+    color: white;
     font-weight: normal;
 }
 
