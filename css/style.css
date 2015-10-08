@@ -47,6 +47,14 @@ input[type] {
     padding-right: 5px;
 }
 
+.search-container {
+    text-align: right;
+}
+
+.search-field {
+    width: 100%;
+}
+
 a {
     text-decoration: none;
     color: #446CB3;

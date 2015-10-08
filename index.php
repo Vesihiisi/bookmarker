@@ -60,30 +60,38 @@ exit();
 </div>
 
 
-    <div class='page-header row'>
+<div class='page-header row'>
 
 
-      <div class="col-sm-6">
-               <h1>Super bookmarker</h1>
-      </div>
+<div class="col-sm-4">
+<h1>Super bookmarker</h1>
+</div>
+
+<div class="col-sm-3">
+<button class="btn btn-primary" id="showPanel"><span class="glyphicon glyphicon-pencil"></span>Add a new link</button>
+
+</div>
+
+<div class="col-sm-5  text-right">
+<div class="search-container text-right">
+
+<div class="input-group search-field">
+  <input type="text" class="form-control" placeholder="Search" >
+</div>
+
+
+</div>
+</div>
 
 
 
-  <div class="col-sm-6">
-              <div class="search-container">
-            <input type="search" class="search form-control" placeholder="Search" name="search" id="search"/>
-            </div>
-  </div>
 
 
 
 
 
 
-
-
-
-    </div>
+</div>
 
 
 
@@ -95,7 +103,6 @@ exit();
 
 
 <div class="col-sm-9">
-<button class="btn btn-primary" id="showPanel"><span class="glyphicon glyphicon-pencil"></span>Add a new link</button>
 
 </div>
 
