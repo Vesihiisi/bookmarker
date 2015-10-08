@@ -163,11 +163,11 @@ $(document).ready(function() {
     function makeEntryEditable(entry) {
         function generateCancelButton() {
             var icon = $("<span/>", {
-                class: "glyphicon glyphicon-remove-circle"
+                class: "glyphicon glyphicon-remove"
             })
             var buttonCancel = $("<button/>", {
-                text: "Cancel",
-                class: "btn btn-warning buttonCancel"
+                text: "",
+                class: "btn btn-circle btn-warning buttonCancel"
             })
             buttonCancel.prepend(icon)
             return buttonCancel;
@@ -175,11 +175,11 @@ $(document).ready(function() {
 
         function generateSaveButton() {
             var icon = $("<span/>", {
-                class: "glyphicon glyphicon-ok-circle"
+                class: "glyphicon glyphicon-ok"
             })
             var buttonSave = $("<button/>", {
-                text: "Save",
-                class: "btn btn-success buttonSave"
+                text: "",
+                class: "btn btn-circle btn-success buttonSave"
             })
             buttonSave.prepend(icon)
             return buttonSave;

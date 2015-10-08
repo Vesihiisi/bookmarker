@@ -68,7 +68,7 @@ exit();
 </div>
 
 <div class="col-sm-3">
-<button class="btn btn-primary" id="showPanel"><span class="glyphicon glyphicon-pencil"></span>Add a new link</button>
+<button class="btn btn-primary btn-circle" id="showPanel"><span class="glyphicon glyphicon-plus"></span></button>
 
 </div>
 
