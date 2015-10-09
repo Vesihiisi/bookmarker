@@ -312,6 +312,10 @@ ul.tagit {
     background: inherit;
 }
 
+.tooltip {
+    position: fixed;
+}
+
 .tooltip > .tooltip-inner {
     background-color: #ffd88f;
     color: black;

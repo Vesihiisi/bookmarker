@@ -105,7 +105,7 @@ exit();
 
 
 <div class="col-sm-12">
-<button class="btn btn-primary btn-circle pull-right" id="showPanel"><span class="glyphicon glyphicon-plus"></span></button>
+<button data-toggle='tooltip' title='Add bookmark' class="btn btn-primary btn-circle pull-right" id="showPanel" ><span class="glyphicon glyphicon-plus"></span></button>
 </div>
 
 
@@ -131,9 +131,9 @@ exit();
 <label for="tags">TAGS:</label>
 <input type="tags" name="tags" id="tagForm">
 </div>
-<button type="submit" value="add" class="btn btn-circle btn-success buttonSave pull-right" id="addEntryButton"><span class="glyphicon glyphicon-ok"></span></button>
+<button title = "Add" data-toggle: "tooltip" type="submit" value="add"  class="btn btn-circle btn-success buttonSave pull-right" id="addEntryButton"><span class="glyphicon glyphicon-ok"></span></button>
 
-<button class="btn btn-circle btn-warning buttonCancel disabled pull-right" ><span class="glyphicon glyphicon-remove"></span></button>
+<button title = "Cancel" data-toggle: "tooltip" class="btn btn-circle btn-warning buttonCancel disabled pull-right" ><span class="glyphicon glyphicon-remove"></span></button>
 </form>
 </div>
 

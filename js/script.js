@@ -126,11 +126,18 @@ $(document).ready(function() {
 
 
     function addFunctionsToEntryInterface() {
+        $(".btn-circle").tooltip({
+            animation: true,
+        });
         $(".glyphicon-remove").tooltip({
             animation: true,
         });
 
         $(".glyphicon-edit").tooltip({
+            animation: true,
+        });
+
+        $(".btn-circle").tooltip({
             animation: true,
         });
 
@@ -171,11 +178,16 @@ $(document).ready(function() {
     function makeEntryEditable(entry) {
         function generateCancelButton() {
             var icon = $("<span/>", {
-                class: "glyphicon glyphicon-remove"
+                class: "glyphicon glyphicon-remove",
             })
             var buttonCancel = $("<button/>", {
                 text: "",
-                class: "btn btn-circle btn-warning buttonCancel"
+                class: "btn btn-circle btn-warning buttonCancel",
+                title: "Cancel",
+                'data-toggle': 'tooltip',
+            })
+            buttonCancel.tooltip({
+                animation: true,
             })
             buttonCancel.prepend(icon)
             return buttonCancel;
@@ -187,7 +199,12 @@ $(document).ready(function() {
             })
             var buttonSave = $("<button/>", {
                 text: "",
-                class: "btn btn-circle btn-success buttonSave"
+                class: "btn btn-circle btn-success buttonSave",
+                title: "Save",
+                'data-toggle': 'tooltip',
+            })
+            buttonSave.tooltip({
+                animation: true,
             })
             buttonSave.prepend(icon)
             return buttonSave;
