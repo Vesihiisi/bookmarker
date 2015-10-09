@@ -74,8 +74,8 @@ else
 
 
 
+<h2>Sign in</h2>
 
-   <p>Sign in, or <a href="register.php">register</a>.</p>
      
     <form method="post" action="login.php" name="loginform" id="loginform" class="form-signin">
     <fieldset>
@@ -83,7 +83,15 @@ else
         <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
         <label for="password" class="sr-only">Password</label>
         <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+        
+
+        <div class="lower-row">
+         <a href="register.php">Create an account</a>
         <button class="btn btn-circle btn-primary pull-right" type="submit" name="login" id="login" value="Login"><span class="glyphicon glyphicon-log-in"></span></button>
+        </div>
+
+
+       
     </fieldset>
     </form>
     </div>
