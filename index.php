@@ -78,7 +78,7 @@ exit();
 
 <div class="input-group search-field">
 
-<input type="text" class="form-control" placeholder="Search" >
+<input type="text" class="form-control" placeholder="Search" id="search">
 </div>
 
 

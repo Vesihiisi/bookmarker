@@ -142,7 +142,8 @@ function printLinksFromTag($tag)
 function getLinksFromSearch($searchTerm)
 {
     $userID = $_SESSION['UserID'];
-    $query = "SELECT linkID from links where title like %?% AND userID = ?";
+    $searchTerm = "%".$searchTerm."%";
+    $query = "SELECT linkID from links where title like ? AND userID = ?";
     $params = [$searchTerm, $userID];
     $linkIds = array();
     $res = selectQuery($query, $params);

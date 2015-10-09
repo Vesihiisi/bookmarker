@@ -288,6 +288,22 @@ $(document).ready(function() {
         addEntry();
     })
 
+    $("#search").keypress(function(e) {
+    if (e.which == 13) {
+        e.preventDefault();
+        if ($("#search").val().length > 0) {
+            var query = $("#search").val();
+            var post = {
+                'query' : query,
+            };
+            $.post("search.php", post)
+            .done(function(data) {
+                fillEntries(data)
+            })
+        }
+    }
+});
+
 
 
 
