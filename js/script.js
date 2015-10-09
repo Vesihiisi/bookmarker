@@ -299,6 +299,7 @@ $(document).ready(function() {
             $.post("search.php", post)
             .done(function(data) {
                 fillEntries(data)
+                printAlert(query, $(".entries"))
             })
         }
     }
