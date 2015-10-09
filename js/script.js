@@ -32,7 +32,6 @@ $(document).ready(function() {
     function loadTagList() {
         $.get("tagList.php")
             .done(function(data) {
-                console.log(data)
                 $("#tag-column").html(data);
                 $(".tag-list").stupidtable();
                 $(".clickable").click(function() {
@@ -111,13 +110,18 @@ $(document).ready(function() {
     });
 
     $("#showPanel").click(function() {
-        console.log("click");
         if ($(window).width() <= 767) {
             $("html, body").animate({
                 scrollTop: 0
             }, "fast");
         }
-        $(".addURLPanel").slideToggle();
+        $(".addURLPanel").slideToggle(function() {
+            if ($(".addURLPanel").is(":visible")) {
+                console.log("visible")
+                $("#url").focus();
+            }
+        });
+
     })
 
 
@@ -142,7 +146,6 @@ $(document).ready(function() {
 
         $(".glyphicon-remove").on('click', function() {
             var parent = $(this).parents(".entry");
-            console.log("click")
             if (confirm("Are you sure?")) {
                 var linkID = this.id;
                 $.post("delete.php", {
@@ -227,7 +230,6 @@ $(document).ready(function() {
             activateAllEditButtons();
         })
         buttonSave.on('click', function() {
-            console.log("save")
             titleText = $(".edit-title").val()
             tags = $("#newTagField").val();
             data = {
@@ -235,8 +237,6 @@ $(document).ready(function() {
                 tags: tags,
                 linkID: entryID
             }
-            console.log(titleText);
-            console.log(tags)
             $.post("update.php", data)
                 .done(function() {
                     loadLinks()
@@ -247,14 +247,13 @@ $(document).ready(function() {
     function addEntry() {
         var url = $("#url").val()
         var tags = $("#tagForm").tagit("assignedTags").join(",")
-        console.log(tags)
+
         var data = {
             url: url,
             tags: tags
         };
         $.post("add.php", data)
             .done(function(data) {
-                console.log(data)
                 $("#url").val("");
                 $("#tagForm").tagit("removeAll")
                 $(".addURLPanel").hide();
