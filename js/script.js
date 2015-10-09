@@ -82,9 +82,9 @@ $(document).ready(function() {
     function updateUserCount() {
         var count = $("#userCount");
         $.get("getCount.php")
-        .done(function(data) {
-            count.text(data)
-        })
+            .done(function(data) {
+                count.text(data)
+            })
     }
 
     function loadLinks() {
@@ -112,6 +112,11 @@ $(document).ready(function() {
 
     $("#showPanel").click(function() {
         console.log("click");
+        if ($(window).width() <= 767) {
+            $("html, body").animate({
+                scrollTop: 0
+            }, "fast");
+        }
         $(".addURLPanel").slideToggle();
     })
 
