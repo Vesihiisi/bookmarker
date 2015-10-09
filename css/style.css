@@ -335,6 +335,11 @@ ul.tagit {
     padding-bottom: 2em;
 }
 
+.form-signin .form-control {
+    height: 60px;
+    padding-bottom: 0;
+}
+
 .lower-row {
     padding: 6px 12px;
     margin: 1em 0;
