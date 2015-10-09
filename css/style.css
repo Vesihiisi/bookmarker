@@ -328,6 +328,17 @@ ul.tagit {
     overflow: hidden;
 }
 
+
+/* LOGIN.PHP */
+
+.form-signin {
+    padding-bottom: 2em;
+}
+
+.form-signin  .btn-circle {
+    margin: 1em;
+}
+
 @media only screen and (max-width: 767px) {
     #showPanel {
         position: fixed;

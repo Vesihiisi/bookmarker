@@ -68,7 +68,6 @@ exit();
 </div>
 
 <div class="col-sm-3">
-
 </div>
 
 <div class="col-sm-5  text-right">
@@ -79,7 +78,7 @@ exit();
 
 <div class="input-group search-field">
 
-  <input type="text" class="form-control" placeholder="Search" >
+<input type="text" class="form-control" placeholder="Search" >
 </div>
 
 

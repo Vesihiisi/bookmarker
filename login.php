@@ -1,15 +1,35 @@
 <?php
             ob_start();
              include "base.php"; ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">  
-<head>  
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
-<title></title>
-<link rel="stylesheet" href="style.css" type="text/css" />
-</head>  
-<body>  
-<div id="main">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<?php include 'head.php';?>
+</head>
+
+<body>
+<div class="container">
+
+
+<div class='page-header row'>
+
+
+<div class="col-sm-4">
+<h1>Super bookmarker</h1>
+</div>
+
+
+
+</div>
+
+
+
+<div class="row">
+
+<div class="col-sm-3">
+</div>
+
+<div class="col-sm-6">
 <?php
 
 if(!empty($_POST['username']) && !empty($_POST['password']))
@@ -49,21 +69,32 @@ else
 {
     ?>
      
+
+
+
+
+
+
+   <p>Sign in, or <a href="register.php">register</a>.</p>
      
-   <p>Log in, or <a href="register.php">register</a>.</p>
-     
-    <form method="post" action="login.php" name="loginform" id="loginform">
+    <form method="post" action="login.php" name="loginform" id="loginform" class="form-signin">
     <fieldset>
-        <label for="username">Username:</label><input type="text" name="username" id="username" /><br />
-        <label for="password">Password:</label><input type="password" name="password" id="password" /><br />
-        <input type="submit" name="login" id="login" value="Login" />
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-circle btn-primary pull-right" type="submit" name="login" id="login" value="Login"><span class="glyphicon glyphicon-log-in"></span></button>
     </fieldset>
     </form>
+    </div>
      
    <?php
 }
 ?>
- 
+<div class="col-sm-3">
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
