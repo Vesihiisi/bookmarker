@@ -1,19 +1,9 @@
 <?php
 include "base.php";
-
 include "check.php";
 
 $username = $_SESSION['Username'];
 $userID = $_SESSION['UserID'];
-
-
-
-if ($_POST)
-{
-//     processPost($_POST);
-header("Location: " . $_SERVER['REQUEST_URI']);
-exit();
-}
 
 ?>
 
@@ -28,10 +18,6 @@ exit();
 </head>
 
 <body>
-
-
-
-
 
 
 
@@ -77,8 +63,6 @@ exit();
 
 
 <div class="input-group search-field">
-
-<input type="text" class="form-control" placeholder="Search" id="search">
 </div>
 
 
@@ -110,15 +94,6 @@ exit();
 
 
 
-
-
-
-
-
-
-
-
-
 </div>
 
 <div class="addURLPanel">
@@ -142,20 +117,7 @@ exit();
 
 
 
-
-<?php
-
-if( isset($_GET["tag"])&& !empty( $_GET['tag'] )) {
-$tag = $_GET["tag"];
-//echo "<p class='alert alert-info'>Filter: <a href='?tag=' class='removeTag'>$tag</a></p>";
-//printLinksFromTag($tag);
-} else {
-// include "allLinks.php";
-}
-
-
-
-?></div>
+</div>
 
 <div class="col-sm-3" id="tag-column">
 
@@ -171,9 +133,3 @@ $tag = $_GET["tag"];
 
 
 </html>
-
-
-
-
-
-
