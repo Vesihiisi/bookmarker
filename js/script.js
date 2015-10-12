@@ -35,12 +35,17 @@ $(document).ready(function() {
                 $("#tag-column").html(data);
                 $(".tag-list").stupidtable();
                 $(".clickable").click(function() {
-                    location.href = $(this).find('td a').attr('href');
+                    var allRows = $(".tag-list").children('tbody').children('tr');
+                    var row = $(this).closest('tr')
+                    var tag = row.children().first().text();
+                    loadTaggedLinks(tag);
+                    allRows.each(function(key, value) {
+                        if ($(value).hasClass("highlightedTag")) {
+                            $(value).removeClass("highlightedTag")
+                        }
+                    })
+                    row.addClass("highlightedTag");
                 })
-                var tableRow = $("td").filter(function() {
-                    return $(this).text() == getUrlVars()["tag"];
-                }).closest("tr");
-                tableRow.addClass("highlightedTag");
 
                 var tagListHeight = $(".tag-list").height();
                 var viewportHeight = $(window).height();
