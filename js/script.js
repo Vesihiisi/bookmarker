@@ -1,21 +1,5 @@
 $(document).ready(function() {
 
-    function getUrlVars() {
-        var vars = [],
-            hash;
-        var q = document.URL.split('?')[1];
-        if (q != undefined) {
-            q = q.split('&');
-            for (var i = 0; i < q.length; i++) {
-                hash = q[i].split('=');
-                vars.push(hash[1]);
-                vars[hash[0]] = hash[1];
-            }
-        }
-        return vars
-    }
-
-
     function printAlert(tag, parent) {
         var url = window.location.href.split('?')[0];
         var alert = $("<p></p>").text("Filter: ");
@@ -94,8 +78,6 @@ $(document).ready(function() {
     }
 
 
-
-    var urlParams = getUrlVars();
     loadLinks()
 
     function updateUserCount() {
@@ -107,14 +89,9 @@ $(document).ready(function() {
     }
 
     function loadLinks() {
-        if (urlParams.length == 0) {
-            $(".entries").html("loading.......")
-            loadAllLinks()
-        } else {
-            var tag = urlParams["tag"];
-            loadTaggedLinks(tag)
 
-        }
+            loadAllLinks()
+
         loadTagList();
         updateUserCount();
     }
