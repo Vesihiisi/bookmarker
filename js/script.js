@@ -46,15 +46,25 @@ $(document).ready(function() {
                     })
                     row.addClass("highlightedTag");
                 })
+                $(window).on("resize", function() {
+                    checkAndAdjustTagListStickiness();
+                }).resize();
 
-                var tagListHeight = $(".tag-list").height();
-                var viewportHeight = $(window).height();
-                if (tagListHeight < viewportHeight) {
-                    $(".tag-list").sticky({
-                        topSpacing: 10
-                    });
-                }
+
             })
+    }
+
+
+    function checkAndAdjustTagListStickiness() {
+        var tagListHeight = $(".tag-list").height();
+        var viewportHeight = $(window).height();
+        if (tagListHeight < viewportHeight) {
+            $(".tag-list").sticky({
+                topSpacing: 10
+            });
+        } else {
+            $(".tag-list").unstick()
+        }
     }
 
 
@@ -314,6 +324,8 @@ $(document).ready(function() {
             }
         }
     });
+
+
 
 
 
