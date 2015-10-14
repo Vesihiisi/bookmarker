@@ -215,7 +215,7 @@ $(document).ready(function() {
         var tagRow = entry.find(".tagrow");
         var tagsDiv = entry.find(".tags");
         var tags = [];
-        tagsDiv.children().children().each(function() {
+        tagsDiv.children().each(function() {
             tags.push($(this).text());
         })
         var timestamp = entry.find(".timestamp");
