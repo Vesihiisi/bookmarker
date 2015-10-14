@@ -16,7 +16,26 @@ $(document).ready(function() {
     function loadTagList() {
         $.get("tagList.php")
             .done(function(data) {
-                $("#tag-column").html(data);
+                dataDecoded = $.parseJSON(data);
+                console.log(dataDecoded)
+                var myTable = $('<table/>', {
+                    class : "tag-list",
+                }).appendTo("#tag-column");
+                var tableHead = $('<thead/>').appendTo(myTable)
+                tableHead.append("<tr><th data-sort='string'><span class='glyphicon glyphicon-tags'></span></th><th data-sort='int' class='text-right'><span class='glyphicon glyphicon-sort'></span></th></tr>");
+                var tableBody = $('<tbody/>').appendTo(myTable)
+
+                for (var i = 0; i<dataDecoded.length; i++) {
+                    console.log(dataDecoded[i])
+                    var tableRow = $('<tr/>', {
+                        class: "clickable"
+                    })
+                    tagName = dataDecoded[i]["tag"];
+                    tagCount = dataDecoded[i]["count"];
+                    tableRow.append("<td>" + tagName+ "</td>")
+                    tableRow.append("<td> <span class='tag-count'>" + tagCount+ "</span></td>")
+                    tableBody.append(tableRow)
+                }
                 $(".tag-list").stupidtable();
                 $(".clickable").click(function() {
                     var allRows = $(".tag-list").children('tbody').children('tr');
