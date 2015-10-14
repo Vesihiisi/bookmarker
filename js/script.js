@@ -157,6 +157,11 @@ $(document).ready(function() {
             }
         })
 
+        $(".tag").on('click', function() {
+            var tagText = $(this).text();
+            loadTaggedLinks(tagText);
+        })
+
     }
 
 
