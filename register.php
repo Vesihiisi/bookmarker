@@ -85,6 +85,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])) {
         <input type="text" name="username" id="username" placeholder ="Username" class="form-control">
         <label for="password" class="sr-only">Password</label>
         <input type="password" name="password" id="password" placeholder ="Password" class="form-control">
+        <label class="checkbox-inline"><input type="checkbox" id="showPassword" value="">Show my password</label>
         <label for="email" class="sr-only">Email address</label>
         <input type="email" name="email" id="email" placeholder ="E-mail" class="form-control">
         <div class="lower-row">

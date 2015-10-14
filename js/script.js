@@ -33,8 +33,6 @@ $(document).ready(function() {
                 $(window).on("resize", function() {
                     checkAndAdjustTagListStickiness();
                 }).resize();
-
-
             })
     }
 
@@ -89,9 +87,7 @@ $(document).ready(function() {
     }
 
     function loadLinks() {
-
-            loadAllLinks()
-
+        loadAllLinks()
         loadTagList();
         updateUserCount();
     }
@@ -301,6 +297,15 @@ $(document).ready(function() {
             }
         }
     });
+
+
+    $("#showPassword").click(function() {
+        if ($("#showPassword").is(":checked")) {
+            $("#password").attr('type', 'text');
+        } else {
+            $("#password").attr('type', 'password');
+        }
+    })
 
 
 
