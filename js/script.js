@@ -14,6 +14,7 @@ $(document).ready(function() {
     }
 
     function loadTagList() {
+        $("#tag-column").html("");
         $.get("tagList.php")
             .done(function(data) {
                 dataDecoded = $.parseJSON(data);
